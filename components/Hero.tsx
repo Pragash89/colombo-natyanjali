@@ -173,7 +173,7 @@ export default function Hero() {
 
       {/* ===== DIYA STAR-PATTERN + NATARAJA (centre, enlarged to fill the gap between the pillars) ===== */}
       <div className="statue-wrap absolute z-[12] pointer-events-none"
-           style={{ left: '50%', bottom: '3%', transform: 'translateX(-50%)', width: 'min(63vw, 67vh, 1040px)', minWidth: 440 }}>
+           style={{ left: '50%', bottom: '1%', transform: 'translateX(-50%)', width: 'min(70vw, 73vh, 1180px)', minWidth: 480 }}>
         {/* Star/mandala diya ring */}
         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full" style={{ height: '100%' }} aria-hidden>
           <defs>
@@ -204,7 +204,7 @@ export default function Hero() {
                       animation: 'glowDrift 7s ease-in-out infinite' }} />
 
         {/* Nataraja — Lord of Dance, the heart of the composition (kept still, full majesty) */}
-        <div className="relative" style={{ width: '64%', margin: '0 auto' }}>
+        <div className="relative" style={{ width: '78%', margin: '0 auto' }}>
           <div className="relative w-full" style={{ paddingBottom: '100%' }}>
             <Image src="/images/nataraja-statue.png" alt="Nataraja — Lord of Dance" fill quality={95}
                    className="object-contain" sizes="(max-width: 768px) 75vw, 36vw"
@@ -218,7 +218,7 @@ export default function Hero() {
            style={{ top: 0, transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
 
         {/* Title card — golden scroll crest, enlarged and stretched toward the pillar tops, bearing the event name & tagline baked into the artwork */}
-        <div className="hero-lintel relative text-center z-[2]" style={{ width: 'min(620px, 58vw)' }}>
+        <div className="hero-lintel relative text-center z-[2]" style={{ width: 'min(480px, 46vw)' }}>
           <div className="relative w-full" style={{ aspectRatio: '2600 / 1393' }}>
             <Image src="/images/title-card.png" alt="Colombo Natyanjali — The Annual Maha Shivaratri Dance Tribute" fill priority quality={95}
                    className="object-contain"
@@ -228,7 +228,7 @@ export default function Hero() {
 
         {/* ===== NAV ROW — real stone-plaque button assets, riding just beneath the scroll, near the pillar tops and above the statue ===== */}
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
-             style={{ marginTop: 'clamp(6px, 1vh, 12px)', width: '100%' }}
+             style={{ marginTop: 'clamp(2px, .4vh, 6px)', width: '100%' }}
              aria-label="Primary">
           {NAV_LINKS.map((item, i) => (
             <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
