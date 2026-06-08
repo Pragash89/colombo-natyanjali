@@ -54,8 +54,7 @@ export default function GallerySection() {
                 initial={{ opacity: 0, scale: .92 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: .5, delay: i * .05 }}
-                className="break-inside-avoid relative overflow-hidden group cursor-pointer"
-                style={{ background: 'linear-gradient(135deg, #1e180e, #100e08)', border: '1px solid rgba(201,162,39,.12)', borderRadius: 2 }}>
+                className="stone-card break-inside-avoid relative overflow-hidden group cursor-pointer">
                 {/* Placeholder — will be replaced with real photos */}
                 <div style={{ paddingBottom: item.aspect === 'tall' ? '140%' : '100%', position: 'relative' }}>
                   <div className="absolute inset-0 flex flex-col items-center justify-center"

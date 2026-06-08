@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Trishul, CrescentMoon } from './icons/ShivaIcons';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -174,7 +173,7 @@ export default function Hero() {
 
       {/* ===== DIYA STAR-PATTERN + NATARAJA (centre) ===== */}
       <div className="statue-wrap absolute z-[12] pointer-events-none"
-           style={{ left: '50%', bottom: '4%', transform: 'translateX(-50%)', width: 'clamp(640px, 60vw, 980px)' }}>
+           style={{ left: '50%', bottom: '4%', transform: 'translateX(-50%)', width: 'min(60vw, 64vh, 980px)', minWidth: 420 }}>
         {/* Star/mandala diya ring */}
         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full" style={{ height: '100%' }} aria-hidden>
           <defs>
@@ -198,13 +197,14 @@ export default function Hero() {
           ))}
         </svg>
 
-        {/* Glow beneath statue */}
-        <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-             style={{ bottom: '4%', width: '54%', height: '20%',
-                      background: 'radial-gradient(ellipse, rgba(255,207,110,.5) 0%, transparent 72%)', filter: 'blur(8px)' }} />
+        {/* Glow beneath statue — breathes and drifts gently for an air of majesty (statue itself stays still) */}
+        <div className="absolute left-1/2 pointer-events-none"
+             style={{ bottom: '4%', left: '50%', width: '54%', height: '20%', transformOrigin: 'center',
+                      background: 'radial-gradient(ellipse, rgba(255,207,110,.5) 0%, transparent 72%)', filter: 'blur(8px)',
+                      animation: 'glowDrift 7s ease-in-out infinite' }} />
 
-        {/* Nataraja — Lord of Dance, the heart of the composition */}
-        <div className="relative" style={{ width: '52%', margin: '0 auto', animation: 'floatY 6.5s ease-in-out infinite' }}>
+        {/* Nataraja — Lord of Dance, the heart of the composition (kept still, full majesty) */}
+        <div className="relative" style={{ width: '52%', margin: '0 auto' }}>
           <div className="relative w-full" style={{ paddingBottom: '100%' }}>
             <Image src="/images/nataraja-statue.png" alt="Nataraja — Lord of Dance" fill quality={95}
                    className="object-contain" sizes="(max-width: 768px) 75vw, 36vw"
@@ -213,65 +213,48 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ===== TOP LINTEL — title plate spanning the arch ===== */}
-      <div className="hero-lintel absolute left-1/2 z-[22]"
-           style={{ top: 'clamp(14px, 3vh, 34px)', transform: 'translateX(-50%)', width: 'min(920px, 78vw)' }}>
-        <div className="relative text-center px-6 py-4 sm:px-10 sm:py-5"
-             style={{ background: 'linear-gradient(to bottom, #1b160d 0%, #100d07 100%)',
-                      border: '1px solid rgba(201,162,39,.4)',
-                      boxShadow: '0 10px 40px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.05)' }}>
-          {/* corner ornaments */}
-          <span className="absolute -top-px -left-px w-3 h-3" style={{ borderTop: '2px solid var(--gold)', borderLeft: '2px solid var(--gold)' }} />
-          <span className="absolute -top-px -right-px w-3 h-3" style={{ borderTop: '2px solid var(--gold)', borderRight: '2px solid var(--gold)' }} />
-          <span className="absolute -bottom-px -left-px w-3 h-3" style={{ borderBottom: '2px solid var(--gold)', borderLeft: '2px solid var(--gold)' }} />
-          <span className="absolute -bottom-px -right-px w-3 h-3" style={{ borderBottom: '2px solid var(--gold)', borderRight: '2px solid var(--gold)' }} />
+      {/* ===== HEADER BLOCK — golden scroll title + nav, stacked so they never collide ===== */}
+      <div className="absolute left-1/2 z-[22] flex flex-col items-center"
+           style={{ top: 'clamp(10px, 2.2vh, 26px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
 
-          {/* Shiva emblem — trident flanked by crescent moon */}
-          <div className="flex items-center justify-center gap-3 mb-2" style={{ color: 'var(--gold)' }} aria-hidden>
-            <CrescentMoon className="w-4 h-4 sm:w-5 sm:h-5" style={{ opacity: .8, transform: 'scaleX(-1)' }} />
-            <Trishul className="w-6 h-6 sm:w-7 sm:h-7" style={{ filter: 'drop-shadow(0 0 6px rgba(232,197,71,.5))' }} />
-            <CrescentMoon className="w-4 h-4 sm:w-5 sm:h-5" style={{ opacity: .8 }} />
+        <div className="hero-lintel relative text-center" style={{ width: 'min(560px, 54vw)' }}>
+          {/* Title card — golden scroll bearing the event name & tagline (both baked into the artwork) */}
+          <div className="relative w-full" style={{ aspectRatio: '9761 / 5230' }}>
+            <Image src="/images/title-card.png" alt="Colombo Natyanjali — The Annual Maha Shivaratri Dance Tribute | Sri Lanka" fill priority quality={95}
+                   className="object-contain"
+                   style={{ filter: 'drop-shadow(0 8px 22px rgba(0,0,0,.5)) drop-shadow(0 0 18px rgba(232,197,71,.22))' }}/>
           </div>
-
-          <h1 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1.3rem,3.4vw,2.6rem)', letterSpacing: '.14em', lineHeight: 1.15, filter: 'drop-shadow(0 0 18px rgba(232,197,71,.4))' }}>
-            Colombo Natyanjali
-          </h1>
-          <p style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(.55rem,1vw,.75rem)', letterSpacing: '.24em', color: 'var(--text-muted)', textTransform: 'uppercase', marginTop: '.5rem' }}>
-            The Annual Maha Shivaratri Dance Tribute &nbsp;|&nbsp; Sri Lanka
-          </p>
         </div>
-      </div>
 
-      {/* ===== NAV ROW — single line of stone-plaque buttons, directly under the lintel ===== */}
-      <nav className="hero-nav-row absolute left-1/2 z-[22] flex flex-wrap items-center justify-center gap-2 sm:gap-3"
-           style={{ top: 'clamp(124px, 19vh, 178px)', transform: 'translateX(-50%)', width: 'min(980px, 92vw)' }}
-           aria-label="Primary">
-        {NAV_LINKS.map((item, i) => (
-          <a key={i} href={item.link} className="hero-nav-btn relative text-center"
-             style={{
-               fontFamily: 'var(--font-title)', fontSize: 'clamp(.6rem, 1.05vw, .8rem)',
-               letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--gold-light)',
-               padding: 'clamp(.5rem,1.1vw,.7rem) clamp(.8rem,2vw,1.4rem)', whiteSpace: 'nowrap',
-               background: 'linear-gradient(to bottom, #221b10 0%, #14100a 100%)',
-               border: '1px solid rgba(201,162,39,.45)',
-               clipPath: 'polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%)',
-               boxShadow: '0 6px 18px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06)',
-               transition: 'all .35s ease', cursor: 'pointer',
-             }}
-             onClick={e => { const href = item.link; if (href.startsWith('#')) { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }}>
-            {item.label}
-          </a>
-        ))}
-      </nav>
+        {/* ===== NAV ROW — real stone-plaque button assets, single row beneath the scroll ===== */}
+        <nav className="hero-nav-row flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
+             style={{ marginTop: 'clamp(8px, 1.4vh, 18px)', width: '100%' }}
+             aria-label="Primary">
+          {NAV_LINKS.map((item, i) => (
+            <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
+               style={{ width: 'clamp(82px, 13.5vw, 162px)', aspectRatio: '1154 / 291', flexShrink: 0, cursor: 'pointer' }}
+               onClick={e => { const href = item.link; if (href.startsWith('#')) { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }}>
+              <Image src="/images/plaque-blank.png" alt="" fill quality={90}
+                     className="plaque-bg object-contain pointer-events-none" />
+              <span className="plaque-label relative px-2" style={{
+                fontFamily: 'var(--font-title)', fontSize: 'clamp(.4rem, .82vw, .56rem)',
+                letterSpacing: '.07em', textTransform: 'uppercase', color: 'var(--gold-light)',
+                lineHeight: 1.1, whiteSpace: 'normal',
+              }}>
+                {item.label}
+              </span>
+            </a>
+          ))}
+        </nav>
+      </div>
 
       {/* ===== BOTTOM INFO PANELS (matches reference composition) ===== */}
       <div className="absolute bottom-0 left-0 right-0 z-[22] flex justify-center px-4 sm:px-[8%]"
            style={{ paddingBottom: 'clamp(18px, 3vh, 34px)' }}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full" style={{ maxWidth: 980 }}>
           {INFO_PANELS.map((p, i) => (
-            <div key={i} className="info-panel text-center px-4 py-3 sm:py-4"
-                 style={{ background: 'rgba(13,11,7,.72)', backdropFilter: 'blur(6px)',
-                          border: '1px solid rgba(201,162,39,.28)', boxShadow: '0 8px 28px rgba(0,0,0,.4)' }}>
+            <div key={i} className="info-panel stone-card text-center px-4 py-3 sm:py-4"
+                 style={{ backdropFilter: 'blur(6px)' }}>
               <h3 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(.62rem,1vw,.78rem)', letterSpacing: '.16em', color: 'var(--gold-light)', textTransform: 'uppercase', marginBottom: '.4rem' }}>
                 {p.title}
               </h3>
