@@ -95,16 +95,16 @@ export default function TimelineSection() {
           className="mt-12 stone-card p-8 text-center">
           <Trishul className="w-8 h-8 mx-auto mb-4" style={{ color: 'var(--gold)' }} />
           <h3 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1rem,2vw,1.6rem)', letterSpacing: '.12em', marginBottom: '1rem' }}>
-            Natyanjali 2026
+            Natyanjali 2027
           </h3>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: 560, margin: '0 auto' }}>
-            The fourth edition arrives on Maha Shivaratri, 26 February 2026. More Nadanalayas, more artists, more moments of sublime devotion offered at the cosmic feet of Lord Nataraja.
+            The fourth edition arrives on Maha Shivaratri, 26 February 2027. More Nadanalayas, more artists, more moments of sublime devotion offered at the cosmic feet of Lord Nataraja.
           </p>
           <a href="#register"
              onClick={e => { e.preventDefault(); document.querySelector('#register')?.scrollIntoView({ behavior: 'smooth' }); }}
              className="inline-block mt-6 px-8 py-3"
              style={{ fontFamily: 'var(--font-title)', fontSize: '.78rem', letterSpacing: '.22em', color: 'var(--gold-pale)', border: '1px solid rgba(201,162,39,.4)', background: 'rgba(201,162,39,.08)', textTransform: 'uppercase', cursor: 'pointer', transition: 'all .3s' }}>
-            Register for 2026 ✦
+            Register for 2027 ✦
           </a>
         </motion.div>
       </div>

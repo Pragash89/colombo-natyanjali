@@ -31,7 +31,7 @@ export default function ContactFooter() {
                 <p style={{ fontFamily: 'var(--font-title)', fontSize: '.8rem', letterSpacing: '.18em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1.2rem' }}>Colombo Natyanjali</p>
                 {[
                   { icon: '📍', label: 'Venue', val: 'Premier Classical Arts Hall, Colombo, Sri Lanka' },
-                  { icon: '📅', label: 'Date', val: 'Maha Shivaratri — 26 February 2026' },
+                  { icon: '📅', label: 'Date', val: 'Maha Shivaratri — 26 February 2027' },
                   { icon: '📧', label: 'Email', val: 'natyanjali@colombo.lk' },
                   { icon: '📞', label: 'Phone', val: '+94 11 XXX XXXX' },
                 ].map((c, i) => (

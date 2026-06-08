@@ -171,9 +171,9 @@ export default function Hero() {
                style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-8px 6px 20px rgba(0,0,0,.65))' }}/>
       </div>
 
-      {/* ===== DIYA STAR-PATTERN + NATARAJA (centre) ===== */}
+      {/* ===== DIYA STAR-PATTERN + NATARAJA (centre, enlarged to fill the gap between the pillars) ===== */}
       <div className="statue-wrap absolute z-[12] pointer-events-none"
-           style={{ left: '50%', bottom: '4%', transform: 'translateX(-50%)', width: 'min(60vw, 64vh, 980px)', minWidth: 420 }}>
+           style={{ left: '50%', bottom: '3%', transform: 'translateX(-50%)', width: 'min(63vw, 67vh, 1040px)', minWidth: 440 }}>
         {/* Star/mandala diya ring */}
         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full" style={{ height: '100%' }} aria-hidden>
           <defs>
@@ -204,7 +204,7 @@ export default function Hero() {
                       animation: 'glowDrift 7s ease-in-out infinite' }} />
 
         {/* Nataraja — Lord of Dance, the heart of the composition (kept still, full majesty) */}
-        <div className="relative" style={{ width: '52%', margin: '0 auto' }}>
+        <div className="relative" style={{ width: '64%', margin: '0 auto' }}>
           <div className="relative w-full" style={{ paddingBottom: '100%' }}>
             <Image src="/images/nataraja-statue.png" alt="Nataraja — Lord of Dance" fill quality={95}
                    className="object-contain" sizes="(max-width: 768px) 75vw, 36vw"
@@ -213,22 +213,22 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ===== HEADER BLOCK — golden scroll title + nav, stacked so they never collide ===== */}
-      <div className="absolute left-1/2 z-[22] flex flex-col items-center"
-           style={{ top: 'clamp(10px, 2.2vh, 26px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+      {/* ===== HEADER BLOCK — golden scroll crest crowning the arch, then nav riding just beneath it (stacked so they never collide) ===== */}
+      <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
+           style={{ top: 0, transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
 
-        <div className="hero-lintel relative text-center" style={{ width: 'min(560px, 54vw)' }}>
-          {/* Title card — golden scroll bearing the event name & tagline (both baked into the artwork) */}
-          <div className="relative w-full" style={{ aspectRatio: '9761 / 5230' }}>
-            <Image src="/images/title-card.png" alt="Colombo Natyanjali — The Annual Maha Shivaratri Dance Tribute | Sri Lanka" fill priority quality={95}
+        {/* Title card — golden scroll crest, enlarged and stretched toward the pillar tops, bearing the event name & tagline baked into the artwork */}
+        <div className="hero-lintel relative text-center z-[2]" style={{ width: 'min(620px, 58vw)' }}>
+          <div className="relative w-full" style={{ aspectRatio: '2600 / 1393' }}>
+            <Image src="/images/title-card.png" alt="Colombo Natyanjali — The Annual Maha Shivaratri Dance Tribute" fill priority quality={95}
                    className="object-contain"
                    style={{ filter: 'drop-shadow(0 8px 22px rgba(0,0,0,.5)) drop-shadow(0 0 18px rgba(232,197,71,.22))' }}/>
           </div>
         </div>
 
-        {/* ===== NAV ROW — real stone-plaque button assets, single row beneath the scroll ===== */}
-        <nav className="hero-nav-row flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
-             style={{ marginTop: 'clamp(8px, 1.4vh, 18px)', width: '100%' }}
+        {/* ===== NAV ROW — real stone-plaque button assets, riding just beneath the scroll, near the pillar tops and above the statue ===== */}
+        <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
+             style={{ marginTop: 'clamp(6px, 1vh, 12px)', width: '100%' }}
              aria-label="Primary">
           {NAV_LINKS.map((item, i) => (
             <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
