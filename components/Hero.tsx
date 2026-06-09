@@ -23,11 +23,6 @@ const DIYA_RING = Array.from({ length: 16 }, (_, i) => {
   return { x: 50 + Math.cos(angle) * r * 0.62, y: 62 + Math.sin(angle) * r * 0.34 };
 });
 
-const INFO_PANELS = [
-  { title: 'A Collective of Nadanalayas', body: 'Featuring troupes from 9 distinguished institutes across Sri Lanka' },
-  { title: 'Milestones Achieved',         body: 'Celebrating 3 consecutive years of devotional tribute since 2023' },
-  { title: 'Explore Previous Events',     body: 'Relive the sacred moments from Natyanjali 2023, 2024 and 2025' },
-];
 
 export default function Hero() {
   const heroRef   = useRef<HTMLElement>(null);
@@ -173,7 +168,7 @@ export default function Hero() {
 
       {/* ===== DIYA STAR-PATTERN + NATARAJA (centre, enlarged to fill the gap between the pillars) ===== */}
       <div className="statue-wrap absolute z-[12] pointer-events-none"
-           style={{ left: '50%', bottom: '1%', transform: 'translateX(-50%)', width: 'min(70vw, 73vh, 1180px)', minWidth: 480 }}>
+           style={{ left: '50%', bottom: '5%', transform: 'translateX(-50%)', width: 'min(70vw, 73vh, 1180px)', minWidth: 480 }}>
         {/* Star/mandala diya ring */}
         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full" style={{ height: '100%' }} aria-hidden>
           <defs>
@@ -248,27 +243,9 @@ export default function Hero() {
         </nav>
       </div>
 
-      {/* ===== BOTTOM INFO PANELS (matches reference composition) ===== */}
-      <div className="absolute bottom-0 left-0 right-0 z-[22] flex justify-center px-4 sm:px-[8%]"
-           style={{ paddingBottom: 'clamp(18px, 3vh, 34px)' }}>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full" style={{ maxWidth: 980 }}>
-          {INFO_PANELS.map((p, i) => (
-            <div key={i} className="info-panel stone-card text-center px-4 py-3 sm:py-4"
-                 style={{ backdropFilter: 'blur(6px)' }}>
-              <h3 style={{ fontFamily: 'var(--font-title)', fontSize: 'clamp(.62rem,1vw,.78rem)', letterSpacing: '.16em', color: 'var(--gold-light)', textTransform: 'uppercase', marginBottom: '.4rem' }}>
-                {p.title}
-              </h3>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(.7rem,1vw,.85rem)', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-                {p.body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Scroll cue */}
       <div className="hero-scroll absolute z-[24] flex flex-col items-center gap-2 pointer-events-none"
-           style={{ bottom: 'clamp(118px, 16vh, 150px)', left: '50%', transform: 'translateX(-50%)' }}>
+           style={{ bottom: 'clamp(24px, 4vh, 44px)', left: '50%', transform: 'translateX(-50%)' }}>
         <span style={{ fontFamily: 'var(--font-sub)', fontSize: '.55rem', letterSpacing: '.3em', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Scroll</span>
         <div style={{ width: 14, height: 14, borderRight: '1.5px solid var(--gold-dark)', borderBottom: '1.5px solid var(--gold-dark)', animation: 'scrollBounce 2s ease-in-out infinite' }} />
       </div>

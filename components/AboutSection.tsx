@@ -39,7 +39,7 @@ export default function AboutSection() {
         {/* Body text */}
         <motion.div variants={stagger} initial="hidden" animate={inView ? 'show' : 'hidden'}
                     className="grid md:grid-cols-2 gap-10 mb-16">
-          <motion.div variants={fadeUp} className="stone-card p-8">
+          <motion.div variants={fadeUp} className="velvet-scroll-card" style={{ padding: '1.8rem 2rem 1.8rem' }}>
             <h3 style={{ fontFamily: 'var(--font-title)', fontSize: '1.05rem', color: 'var(--gold-light)', letterSpacing: '.12em', marginBottom: '1rem' }}>The Vision</h3>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: 1.85, color: 'var(--text-primary)' }}>
               Colombo Natyanjali was born from a singular, sacred aspiration — to offer the ancient art of Bharatanatyam as a living prayer to Lord Nataraja on the most auspicious night of Maha Shivaratri. Every mudra, every rhythmic footfall, every graceful arc of the arm becomes an act of devotion when offered at the cosmic feet of the Lord of Dance.
@@ -48,7 +48,7 @@ export default function AboutSection() {
               What began as a quiet gathering of devoted dancers and discerning patrons in 2023 has blossomed into Sri Lanka's most celebrated platform for classical Bharatanatyam — a testament to the island's deep and enduring reverence for the classical arts.
             </p>
           </motion.div>
-          <motion.div variants={fadeUp} className="stone-card p-8">
+          <motion.div variants={fadeUp} className="velvet-scroll-card" style={{ padding: '1.8rem 2rem 1.8rem' }}>
             <h3 style={{ fontFamily: 'var(--font-title)', fontSize: '1.05rem', color: 'var(--gold-light)', letterSpacing: '.12em', marginBottom: '1rem' }}>The Night of Shiva</h3>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: 1.85, color: 'var(--text-primary)' }}>
               Maha Shivaratri — the Great Night of Shiva — is when the cosmos itself holds its breath and devotion transcends all ordinary boundaries. On this sacred night, the veil between the temporal and the divine thins to translucence, and dance becomes the most perfect offering.

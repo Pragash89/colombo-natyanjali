@@ -1,5 +1,6 @@
 import SmoothScroll from '@/components/SmoothScroll';
 import Hero from '@/components/Hero';
+import HeroInfoStrip from '@/components/HeroInfoStrip';
 import AboutSection from '@/components/AboutSection';
 import StatsStrip from '@/components/StatsStrip';
 import NadanalayasSection from '@/components/NadanalayasSection';
@@ -15,6 +16,7 @@ export default function Home() {
     <SmoothScroll>
       <main>
         <Hero />
+        <HeroInfoStrip />
         <div className="divider" />
         <AboutSection />
         <StatsStrip />
