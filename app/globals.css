@@ -267,6 +267,15 @@ html.lenis { height: auto; }
 
 section { position: relative; }
 
+/* On narrow screens anchor statue just below the nav rather than to the hero bottom */
+@media (max-width: 640px) {
+  .statue-wrap {
+    top: 15vh !important;
+    bottom: auto !important;
+    width: 84vw !important;
+  }
+}
+
 .hero-nav-btn { transition: transform .35s ease; }
 .hero-nav-btn:hover {
   transform: translateY(-3px) scale(1.06);

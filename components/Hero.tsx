@@ -168,7 +168,7 @@ export default function Hero() {
 
       {/* ===== DIYA STAR-PATTERN + NATARAJA (centre, enlarged to fill the gap between the pillars) ===== */}
       <div className="statue-wrap absolute z-[12] pointer-events-none"
-           style={{ left: '50%', bottom: '5%', transform: 'translateX(-50%)', width: 'min(70vw, 73vh, 1180px)', minWidth: 480 }}>
+           style={{ left: '50%', bottom: '5%', transform: 'translateX(-50%)', width: 'min(80vw, 95vh, 1540px)', minWidth: 260 }}>
         {/* Star/mandala diya ring */}
         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full" style={{ height: '100%' }} aria-hidden>
           <defs>
@@ -213,7 +213,7 @@ export default function Hero() {
            style={{ top: 0, transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
 
         {/* Title card — golden scroll crest, enlarged and stretched toward the pillar tops, bearing the event name & tagline baked into the artwork */}
-        <div className="hero-lintel relative text-center z-[2]" style={{ width: 'min(480px, 46vw)' }}>
+        <div className="hero-lintel relative text-center z-[2]" style={{ width: 'min(360px, 72vw)' }}>
           <div className="relative w-full" style={{ aspectRatio: '2600 / 1393' }}>
             <Image src="/images/title-card.png" alt="Colombo Natyanjali — The Annual Maha Shivaratri Dance Tribute" fill priority quality={95}
                    className="object-contain"
@@ -223,7 +223,7 @@ export default function Hero() {
 
         {/* ===== NAV ROW — real stone-plaque button assets, riding just beneath the scroll, near the pillar tops and above the statue ===== */}
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
-             style={{ marginTop: 'clamp(2px, .4vh, 6px)', width: '100%' }}
+             style={{ marginTop: '2px', width: '100%' }}
              aria-label="Primary">
           {NAV_LINKS.map((item, i) => (
             <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
