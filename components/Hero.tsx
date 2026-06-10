@@ -176,7 +176,7 @@ export default function Hero() {
 
       {/* ===== DIYA STAR-PATTERN + NATARAJA (framed inside the arch opening, sized to avoid clipping its corners) ===== */}
       <div className="statue-wrap absolute z-[12] pointer-events-none"
-           style={{ left: '50%', top: 'calc(min(1300px, 92vw) * 0.30)', transform: 'translateX(-50%)', width: 'min(59.8vw, 72.8vh, 936px)', minWidth: 230 }}>
+           style={{ left: '50%', top: 'calc(min(1300px, 92vw) * 0.22)', transform: 'translateX(-50%)', width: 'min(59.8vw, 72.8vh, 936px)', minWidth: 230 }}>
         {/* Star/mandala diya ring */}
         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full" style={{ height: '100%' }} aria-hidden>
           <defs>
@@ -218,7 +218,7 @@ export default function Hero() {
 
       {/* ===== NAV ROW — real stone-plaque button assets, riding along the top of the arch ===== */}
       <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-           style={{ top: 'calc(min(1300px, 92vw) * 0.13)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+           style={{ top: 'calc(min(1300px, 92vw) * 0.17)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
              style={{ width: '100%' }}
              aria-label="Primary">
