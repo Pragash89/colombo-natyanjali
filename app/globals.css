@@ -277,6 +277,12 @@ section { position: relative; }
   .statue-wrap {
     width: min(58vw, 56vh, 720px) !important;
   }
+  .hero-nav-btn {
+    width: clamp(64px, 18.5vw, 130px) !important;
+  }
+  .hero-nav-row {
+    gap: 2px !important;
+  }
 }
 
 .hero-nav-btn { transition: transform .35s ease; }
@@ -292,8 +298,9 @@ section { position: relative; }
 }
 .hero-nav-btn .plaque-label {
   transition: color .35s ease, text-shadow .35s ease;
+  text-shadow: 0 0 6px rgba(232,197,71,.55), 0 0 14px rgba(232,197,71,.35);
 }
 .hero-nav-btn:hover .plaque-label {
   color: var(--gold-pale);
-  text-shadow: 0 0 12px rgba(232,197,71,.6);
+  text-shadow: 0 0 8px rgba(255,230,150,.85), 0 0 22px rgba(232,197,71,.7);
 }

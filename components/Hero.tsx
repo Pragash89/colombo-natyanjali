@@ -224,12 +224,12 @@ export default function Hero() {
              aria-label="Primary">
           {NAV_LINKS.map((item, i) => (
             <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
-               style={{ width: 'clamp(82px, 13.5vw, 162px)', aspectRatio: '1154 / 291', flexShrink: 0, cursor: 'pointer' }}
+               style={{ width: 'clamp(98.4px, 16.2vw, 194.4px)', aspectRatio: '1154 / 291', flexShrink: 0, cursor: 'pointer' }}
                onClick={e => { const href = item.link; if (href.startsWith('#')) { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }}>
               <Image src="/images/plaque-blank.png" alt="" fill quality={90}
                      className="plaque-bg object-contain pointer-events-none" />
               <span className="plaque-label relative px-2" style={{
-                fontFamily: 'var(--font-title)', fontSize: 'clamp(.4rem, .82vw, .56rem)',
+                fontFamily: 'var(--font-title)', fontSize: 'clamp(.48rem, .984vw, .672rem)',
                 letterSpacing: '.07em', textTransform: 'uppercase', color: 'var(--gold-light)',
                 lineHeight: 1.1, whiteSpace: 'normal',
               }}>
