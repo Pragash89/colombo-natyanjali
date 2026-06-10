@@ -267,12 +267,15 @@ html.lenis { height: auto; }
 
 section { position: relative; }
 
-/* On narrow screens anchor statue just below the nav rather than to the hero bottom */
+/* On narrow screens the full corner pillars don't fit alongside the arch — hide them and
+   let the statue sit a little larger within the arch opening */
 @media (max-width: 640px) {
+  .arch-pillar-l,
+  .arch-pillar-r {
+    display: none;
+  }
   .statue-wrap {
-    top: 15vh !important;
-    bottom: auto !important;
-    width: 84vw !important;
+    width: min(58vw, 56vh, 720px) !important;
   }
 }
 

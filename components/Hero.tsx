@@ -33,7 +33,7 @@ export default function Hero() {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.from('.arch-pillar-l', { x: -100, opacity: 0, duration: 1.5 }, 0)
       .from('.arch-pillar-r', { x:  100, opacity: 0, duration: 1.5 }, 0)
-      .from('.hero-lintel',   { y: -40, opacity: 0, duration: 1.1 }, .4)
+      .from('.hero-arch',     { y: -40, opacity: 0, duration: 1.1 }, .4)
       .from('.hero-nav-row',  { y: -24, opacity: 0, duration: 1 }, .8)
       .from('.statue-wrap',   { scale: .72, opacity: 0, duration: 1.7, ease: 'back.out(1.4)' }, .5)
       .from('.diya-dot',      { scale: 0, opacity: 0, duration: .6, stagger: .04 }, 1.1)
@@ -166,9 +166,17 @@ export default function Hero() {
                style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-8px 6px 20px rgba(0,0,0,.65))' }}/>
       </div>
 
-      {/* ===== DIYA STAR-PATTERN + NATARAJA (centre, enlarged to fill the gap between the pillars) ===== */}
+      {/* ===== ARCH WITH LOGO — spans the gap between the pillars, replaces the title card ===== */}
+      <div className="hero-arch absolute left-1/2 z-[11] pointer-events-none"
+           style={{ top: 0, transform: 'translateX(-50%)', width: 'min(1300px, 92vw)', aspectRatio: '2400 / 1542' }}>
+        <Image src="/images/arch-logo.png" alt="Colombo Natyanjali — The Annual Maha Shivaratri Dance Tribute" fill priority quality={95}
+               className="object-contain"
+               style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,.55))' }}/>
+      </div>
+
+      {/* ===== DIYA STAR-PATTERN + NATARAJA (framed inside the arch opening, sized to avoid clipping its corners) ===== */}
       <div className="statue-wrap absolute z-[12] pointer-events-none"
-           style={{ left: '50%', bottom: '5%', transform: 'translateX(-50%)', width: 'min(80vw, 95vh, 1540px)', minWidth: 260 }}>
+           style={{ left: '50%', top: 'calc(min(1300px, 92vw) * 0.30)', transform: 'translateX(-50%)', width: 'min(46vw, 56vh, 720px)', minWidth: 230 }}>
         {/* Star/mandala diya ring */}
         <svg viewBox="0 0 100 100" className="absolute inset-0 w-full" style={{ height: '100%' }} aria-hidden>
           <defs>
@@ -208,22 +216,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ===== HEADER BLOCK — golden scroll crest crowning the arch, then nav riding just beneath it (stacked so they never collide) ===== */}
+      {/* ===== NAV ROW — real stone-plaque button assets, riding beneath the arch's lintel, above the statue ===== */}
       <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-           style={{ top: 0, transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
-
-        {/* Title card — golden scroll crest, enlarged and stretched toward the pillar tops, bearing the event name & tagline baked into the artwork */}
-        <div className="hero-lintel relative text-center z-[2]" style={{ width: 'min(360px, 72vw)' }}>
-          <div className="relative w-full" style={{ aspectRatio: '2600 / 1393' }}>
-            <Image src="/images/title-card.png" alt="Colombo Natyanjali — The Annual Maha Shivaratri Dance Tribute" fill priority quality={95}
-                   className="object-contain"
-                   style={{ filter: 'drop-shadow(0 8px 22px rgba(0,0,0,.5)) drop-shadow(0 0 18px rgba(232,197,71,.22))' }}/>
-          </div>
-        </div>
-
-        {/* ===== NAV ROW — real stone-plaque button assets, riding just beneath the scroll, near the pillar tops and above the statue ===== */}
+           style={{ top: 'calc(min(1300px, 92vw) * 0.21)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
-             style={{ marginTop: '2px', width: '100%' }}
+             style={{ width: '100%' }}
              aria-label="Primary">
           {NAV_LINKS.map((item, i) => (
             <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
