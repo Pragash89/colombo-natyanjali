@@ -6,36 +6,29 @@ import { Trishul } from './icons/ShivaIcons';
 
 const easing = [.22, 1, .36, 1] as [number, number, number, number];
 
-/* Corrected: 3 years from 2023 */
 const MILESTONES = [
   {
-    year: '2023',
-    title: 'The First Natyanjali',
+    year: '2014',
+    title: 'The First Offering',
     items: [
-      'Inaugural event held on Maha Shivaratri at Colombo\'s foremost classical arts venue',
-      '7 Nadanalayas, 160+ students participate in the first collective offering',
-      'Pushpanjali performed by all schools simultaneously — a historic moment',
-      'Over 2,000 devotees and arts enthusiasts attend the maiden event',
+      'The first Maha Shivaratri dance offering is presented at New Kathiresan Kovil, Bambalapitiya',
+      'A tradition takes root — devotees and artistes gather to worship Lord Shiva through classical dance',
     ],
   },
   {
     year: '2024',
-    title: 'Growing the Tradition',
+    title: 'Colombo Natyanjali Foundation is Born',
     items: [
-      'Two more Nadanalayas join — participation expands to 9 schools',
-      'Introduction of senior artists\' showcase alongside student performances',
-      'Special tribute to the Chola-era origins of Bharatanatyam through visual arts installation',
-      'Audience grows to 4,000+ as the event gains recognition islandwide',
+      'The Colombo Natyanjali Foundation is founded to preserve, promote and create awareness of Indian and Sri Lankan classical arts',
+      'Natyanjali continues its decade-long devotion at New Kathiresan Kovil under the Foundation\'s stewardship — Year 1',
     ],
   },
   {
     year: '2025',
-    title: 'A Sacred Legacy',
+    title: 'A Growing Legacy',
     items: [
-      'Colombo Natyanjali recognised as Sri Lanka\'s premier classical Bharatanatyam platform',
-      'International classical artists invited as honorary participants',
-      'Documentary film on the event premieres to critical acclaim',
-      'Over 5,000 attendees mark the event\'s establishment as an annual institution',
+      'Natyanjali 2025 held on Wednesday, 26 February, at New Kathiresan Kovil, Bambalapitiya — Year 2 of the Foundation era',
+      'Presented by Sri Kaileshwaran Natyalaya School of Fine Arts, in collaboration with the Swami Vivekananda Cultural Centre, High Commission of India, Colombo, and the Indian Council for Cultural Relations',
     ],
   },
 ];
@@ -49,10 +42,10 @@ export default function TimelineSection() {
              style={{ background: 'linear-gradient(to bottom, #080603, #0f0c07)' }}>
       <div ref={ref} className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.68rem', letterSpacing: '.4em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1rem' }}>A Growing Legacy</p>
-          <h2 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1.4rem,2.8vw,2.8rem)', letterSpacing: '.12em' }}>Three Years of History</h2>
+          <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.68rem', letterSpacing: '.4em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1rem' }}>History &amp; Milestones</p>
+          <h2 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1.4rem,2.8vw,2.8rem)', letterSpacing: '.12em' }}>Our Journey</h2>
           <div className="mt-5 mx-auto" style={{ width: 160, height: 1, background: 'linear-gradient(to right, transparent, var(--gold), transparent)' }} />
-          <p className="mt-3" style={{ fontFamily: 'var(--font-sub)', fontSize: '.72rem', letterSpacing: '.25em', color: 'var(--text-muted)', textTransform: 'uppercase' }}>2023 · 2024 · 2025</p>
+          <p className="mt-3" style={{ fontFamily: 'var(--font-sub)', fontSize: '.72rem', letterSpacing: '.25em', color: 'var(--text-muted)', textTransform: 'uppercase' }}>2014 · 2024 · 2025 · 2026</p>
         </div>
 
         <div className="space-y-10">
@@ -95,16 +88,16 @@ export default function TimelineSection() {
           className="mt-12 stone-card p-8 text-center">
           <Trishul className="w-8 h-8 mx-auto mb-4" style={{ color: 'var(--gold)' }} />
           <h3 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1rem,2vw,1.6rem)', letterSpacing: '.12em', marginBottom: '1rem' }}>
-            Natyanjali 2027
+            Natyanjali 2026
           </h3>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: 560, margin: '0 auto' }}>
-            The fourth edition arrives on Maha Shivaratri, 26 February 2027. More Nadanalayas, more artists, more moments of sublime devotion offered at the cosmic feet of Lord Nataraja.
+            Natyanjali 2026 arrives on Maha Shivaratri, 15 February 2026, at Nattukottai Nagarathar, New Kathiresan Kovil, Bambalapitiya — held in collaboration with the Department of Hindu Religious and Cultural Affairs, marking the Foundation&apos;s third consecutive year of devotion.
           </p>
           <a href="#register"
              onClick={e => { e.preventDefault(); document.querySelector('#register')?.scrollIntoView({ behavior: 'smooth' }); }}
              className="inline-block mt-6 px-8 py-3"
              style={{ fontFamily: 'var(--font-title)', fontSize: '.78rem', letterSpacing: '.22em', color: 'var(--gold-pale)', border: '1px solid rgba(201,162,39,.4)', background: 'rgba(201,162,39,.08)', textTransform: 'uppercase', cursor: 'pointer', transition: 'all .3s' }}>
-            Register for 2027 ✦
+            Register for 2026 ✦
           </a>
         </motion.div>
       </div>

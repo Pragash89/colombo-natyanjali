@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const NAV_LINKS = [
   { label: 'Home',                     link: '#hero' },
-  { label: 'About Us & Nadanalayas',   link: '#about' },
+  { label: 'About Us',                 link: '#about' },
   { label: 'Performances',             link: '#performances' },
   { label: 'History & Milestones',     link: '#timeline' },
   { label: 'Gallery',                  link: '#gallery' },

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const TARGET = new Date('2027-02-26T00:00:00+05:30').getTime();
+const TARGET = new Date('2026-02-15T17:30:00+05:30').getTime();
 
 function pad(n: number) { return String(n).padStart(2, '0'); }
 
@@ -40,10 +40,10 @@ export default function CountdownSection() {
       <div className="relative max-w-3xl mx-auto text-center">
         <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.68rem', letterSpacing: '.4em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1rem' }}>Next Sacred Night</p>
         <h2 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1.2rem,2.5vw,2.4rem)', letterSpacing: '.12em', marginBottom: '.5rem' }}>
-          Natyanjali 2027
+          Natyanjali 2026
         </h2>
         <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.72rem', letterSpacing: '.28em', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '2.5rem' }}>
-          Maha Shivaratri · 26 February 2027 · Colombo
+          Maha Shivaratri · 15 February 2026 · New Kathiresan Kovil, Bambalapitiya
         </p>
 
         <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto mb-8">

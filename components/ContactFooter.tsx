@@ -28,12 +28,13 @@ export default function ContactFooter() {
             {/* Contact info */}
             <div className="space-y-6">
               <div className="stone-card p-6">
-                <p style={{ fontFamily: 'var(--font-title)', fontSize: '.8rem', letterSpacing: '.18em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1.2rem' }}>Colombo Natyanjali</p>
+                <p style={{ fontFamily: 'var(--font-title)', fontSize: '.8rem', letterSpacing: '.18em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1.2rem' }}>Colombo Natyanjali Foundation</p>
                 {[
-                  { icon: '📍', label: 'Venue', val: 'Premier Classical Arts Hall, Colombo, Sri Lanka' },
-                  { icon: '📅', label: 'Date', val: 'Maha Shivaratri — 26 February 2027' },
-                  { icon: '📧', label: 'Email', val: 'natyanjali@colombo.lk' },
-                  { icon: '📞', label: 'Phone', val: '+94 11 XXX XXXX' },
+                  { icon: '📍', label: 'Venue', val: 'Nattukottai Nagarathar, New Kathiresan Kovil, Bambalapitiya, Colombo 04, Sri Lanka' },
+                  { icon: '🏛️', label: 'Office', val: '371/6, Galle Road, Dehiwala-Mount Lavinia, Sri Lanka' },
+                  { icon: '📅', label: 'Date', val: 'Maha Shivaratri — 15 February 2026, Evening 5.30 PM onwards' },
+                  { icon: '📧', label: 'Email', val: 'colombonatyanjali@gmail.com' },
+                  { icon: '📞', label: 'Phone', val: '076 100 3421' },
                 ].map((c, i) => (
                   <div key={i} className="flex gap-3 mb-3">
                     <span style={{ fontSize: '1.1rem', flexShrink: 0, marginTop: '.1rem' }}>{c.icon}</span>
@@ -46,7 +47,7 @@ export default function ContactFooter() {
               </div>
               <div className="stone-card p-6">
                 <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.8rem', color: 'var(--text-muted)', lineHeight: 1.7, fontStyle: 'italic' }}>
-                  &ldquo;Natyanjali is not an event — it is an act of grace, a collective surrender at the feet of Lord Nataraja through the medium of the most sacred art form known to humanity.&rdquo;
+                  &ldquo;Because here, art is worship, culture is identity, and dance is devotion.&rdquo;
                 </p>
               </div>
             </div>
@@ -92,19 +93,19 @@ export default function ContactFooter() {
         </div>
         <div className="relative max-w-4xl mx-auto">
           <div className="gold-text mb-2" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(.9rem,1.8vw,1.6rem)', letterSpacing: '.18em' }}>
-            Colombo Natyanjali
+            Colombo Natyanjali Foundation
           </div>
           <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.65rem', letterSpacing: '.3em', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '1.5rem' }}>
-            Sri Lanka · Maha Shivaratri · Since 2023
+            Sri Lanka · Maha Shivaratri · Devotion Since 2014
           </p>
           <div style={{ height: 1, background: 'linear-gradient(to right, transparent, rgba(201,162,39,.25), transparent)', marginBottom: '1.5rem' }} />
           <div className="flex flex-wrap justify-center gap-6 mb-4">
-            {['About', 'Nadanalayas', 'Performances', 'History', 'Gallery', 'Register', 'Contact'].map(link => (
-              <a key={link} href={`#${link.toLowerCase()}`}
+            {[{ label: 'About', href: '#about' }, { label: 'Guidelines', href: '#guidelines' }, { label: 'Performances', href: '#performances' }, { label: 'History', href: '#timeline' }, { label: 'Gallery', href: '#gallery' }, { label: 'Register', href: '#register' }, { label: 'Contact', href: '#contact' }].map(link => (
+              <a key={link.label} href={link.href}
                  style={{ fontFamily: 'var(--font-title)', fontSize: '.62rem', letterSpacing: '.2em', color: 'var(--text-muted)', textTransform: 'uppercase', textDecoration: 'none', transition: 'color .3s' }}
                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}>
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
@@ -112,7 +113,7 @@ export default function ContactFooter() {
             OM நம சிவாய &nbsp;✦&nbsp; OM NAMAH SHIVAYA &nbsp;✦&nbsp; ॐ नमः शिवाय
           </p>
           <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.55rem', color: 'rgba(168,144,96,.25)', letterSpacing: '.12em', marginTop: '.5rem' }}>
-            © 2026 Colombo Natyanjali. All rights reserved.
+            © 2026 Colombo Natyanjali Foundation. All rights reserved.
           </p>
         </div>
       </footer>

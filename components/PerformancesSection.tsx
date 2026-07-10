@@ -5,15 +5,13 @@ import { motion, useInView } from 'framer-motion';
 
 const easing = [.22, 1, .36, 1] as [number, number, number, number];
 
-const ITEMS = [
-  { title: 'Pushpanjali',       type: 'Opening',     desc: 'The sacred flower offering — all schools perform together to invoke divine blessings for the evening ahead.' },
-  { title: 'Alarippu',          type: 'Margam Item', desc: 'The classical opening piece awakening the body, mind and spirit through a pure rhythmic offering to the cosmos.' },
-  { title: 'Jathiswaram',       type: 'Margam Item', desc: 'A study in pure nritta set to swara passages — the body speaking the language of music without narrative.' },
-  { title: 'Shabdam',           type: 'Devotional',  desc: 'A lyrical composition in praise of Lord Nataraja, combining abhinaya with tender devotional expression.' },
-  { title: 'Varnam',            type: 'Centrepiece', desc: 'The crown jewel of Bharatanatyam — a long-form exposition of both nritta and abhinaya at the height of artistry.' },
-  { title: 'Padam & Javali',    type: 'Abhinaya',   desc: 'Intimate compositions exploring the many faces of bhakti — the longing of the devotee for the divine beloved.' },
-  { title: 'Thillana',          type: 'Grand Finale', desc: 'An exhilarating celebration of pure dance — rhythmic brilliance cascading to an ecstatic conclusion.' },
-  { title: 'Mangalam',          type: 'Closing',     desc: 'A collective benediction — all artists together offer a final prayer of gratitude and peace.' },
+const FORMS = [
+  { title: 'Bharatanatyam', origin: 'Tamil Nadu',     desc: 'A sacred temple art blending precise rhythm, sculptural poses and expressive storytelling.' },
+  { title: 'Kathak',        origin: 'North India',    desc: 'The storytelling dance of North India, marked by swift spins and intricate rhythmic footwork.' },
+  { title: 'Kuchipudi',     origin: 'Andhra Pradesh',  desc: 'A dance-drama tradition known for its lyrical grace, speed and dramatic narrative.' },
+  { title: 'Odissi',        origin: 'Odisha',          desc: 'One of India\'s oldest dance forms, celebrated for its sculpturesque tribhangi poses.' },
+  { title: 'Mohiniyattam',  origin: 'Kerala',          desc: 'The gentle, swaying "dance of the enchantress," lyrical and deeply devotional.' },
+  { title: 'Manipuri',      origin: 'Manipur',         desc: 'A soft, fluid devotional dance rooted in Vaishnavite worship and quiet grace.' },
 ];
 
 export default function PerformancesSection() {
@@ -30,41 +28,28 @@ export default function PerformancesSection() {
 
       <div ref={ref} className="max-w-5xl mx-auto">
         <div className="text-center mb-14">
-          <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.68rem', letterSpacing: '.4em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1rem' }}>Programme Structure</p>
+          <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.68rem', letterSpacing: '.4em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1rem' }}>Classical Forms Nurtured</p>
           <h2 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1.4rem,2.8vw,2.8rem)', letterSpacing: '.12em' }}>The Evening&apos;s Offerings</h2>
           <div className="mt-5 mx-auto" style={{ width: 160, height: 1, background: 'linear-gradient(to right, transparent, var(--gold), transparent)' }} />
+          <p className="mt-4 max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
+            Solo and group performances across six classical Indian dance traditions are offered at the feet of Lord Shiva on Maha Shivaratri night.
+          </p>
         </div>
 
-        <div className="relative">
-          {/* Vertical timeline line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px hidden md:block pointer-events-none"
-               style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,162,39,.25), transparent)' }} />
-
-          <div className="space-y-6">
-            {ITEMS.map((item, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <motion.div key={i}
-                  initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: .7, delay: i * .1, ease: easing }}
-                  className={`md:grid md:grid-cols-2 gap-6 items-center ${isLeft ? '' : 'md:direction-rtl'}`}>
-                  <div className={`stone-card p-6 ${isLeft ? 'md:mr-8' : 'md:ml-8 md:col-start-2'}`}>
-                    <div className="flex justify-between items-start mb-2">
-                      <span style={{ fontFamily: 'var(--font-sub)', fontSize: '.6rem', letterSpacing: '.22em', color: 'var(--gold)', textTransform: 'uppercase' }}>{item.type}</span>
-                      <span style={{ fontFamily: 'var(--font-sub)', fontSize: '.62rem', color: 'var(--text-muted)', opacity: .6 }}>0{i + 1}</span>
-                    </div>
-                    <h3 style={{ fontFamily: 'var(--font-title)', fontSize: '1.1rem', color: 'var(--gold-light)', letterSpacing: '.1em', marginBottom: '.5rem' }}>{item.title}</h3>
-                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '.95rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>{item.desc}</p>
-                  </div>
-                  {/* Centre dot (only md+) */}
-                  <div className={`hidden md:flex justify-center items-center ${isLeft ? 'md:col-start-2' : 'md:col-start-1 md:row-start-1'}`}>
-                    <div style={{ width: 14, height: 14, borderRadius: '50%', background: 'var(--gold-dark)', border: '2px solid var(--gold)', boxShadow: '0 0 12px rgba(201,162,39,.5)' }} />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {FORMS.map((f, i) => (
+            <motion.div key={i}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: .7, delay: i * .08, ease: easing }}
+              className="stone-card p-6">
+              <div className="flex justify-between items-start mb-2">
+                <h3 style={{ fontFamily: 'var(--font-title)', fontSize: '1.05rem', color: 'var(--gold-light)', letterSpacing: '.1em' }}>{f.title}</h3>
+                <span style={{ fontFamily: 'var(--font-sub)', fontSize: '.6rem', letterSpacing: '.16em', color: 'var(--gold-dark)', textTransform: 'uppercase' }}>{f.origin}</span>
+              </div>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '.95rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>{f.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

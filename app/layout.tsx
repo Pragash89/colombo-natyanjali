@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Colombo Natyanjali — Maha Shivaratri Bharatanatyam Tribute",
-  description: "Sri Lanka's most celebrated classical Bharatanatyam tribute on Maha Shivaratri. Annual event featuring Nadanalayas from across Sri Lanka.",
-  keywords: "Colombo Natyanjali, Bharatanatyam, Maha Shivaratri, Sri Lanka, classical dance, Nataraja",
+  title: "Colombo Natyanjali 2026 — Maha Shivaratri Classical Dance Tribute",
+  description: "Colombo Natyanjali Foundation's annual Maha Shivaratri offering of classical Indian dance — Bharatanatyam, Kathak, Kuchipudi, Odissi, Mohiniyattam & Manipuri — at New Kathiresan Kovil, Bambalapitiya, Colombo. 15 February 2026, 5.30 PM onwards.",
+  keywords: "Colombo Natyanjali, Colombo Natyanjali Foundation, Maha Shivaratri, Bharatanatyam, Kathak, Kuchipudi, Odissi, Mohiniyattam, Manipuri, New Kathiresan Kovil, Bambalapitiya, Sri Lanka classical dance, Nataraja",
 };
 
 export default function RootLayout({

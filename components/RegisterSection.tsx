@@ -47,9 +47,12 @@ export default function RegisterSection() {
 
       <div className="relative max-w-2xl mx-auto">
         <div className="text-center mb-12">
-          <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.68rem', letterSpacing: '.4em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1rem' }}>Natyanjali 2027</p>
+          <p style={{ fontFamily: 'var(--font-sub)', fontSize: '.68rem', letterSpacing: '.4em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '1rem' }}>Natyanjali 2026</p>
           <h2 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1.4rem,2.8vw,2.8rem)', letterSpacing: '.12em' }}>Register</h2>
           <div className="mt-5 mx-auto" style={{ width: 160, height: 1, background: 'linear-gradient(to right, transparent, var(--gold), transparent)' }} />
+          <p className="mt-4 max-w-xl mx-auto" style={{ fontFamily: 'var(--font-body)', fontSize: '.9rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
+            Group performances: 15 minutes · Solo performances: 5 minutes, plus 5 additional minutes for announcements and live orchestra.
+          </p>
         </div>
 
         {/* Tab buttons */}
@@ -70,7 +73,7 @@ export default function RegisterSection() {
                 <CrescentMoon className="w-10 h-10 mx-auto mb-4" style={{ color: 'var(--gold)' }} />
                 <h3 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: '1.2rem', marginBottom: '1rem' }}>OM Namah Shivaya</h3>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', color: 'var(--text-muted)', lineHeight: 1.7 }}>
-                  Thank you for your registration. The Natyanjali team will respond within 14 days. May Lord Nataraja bless your journey.
+                  Thank you for your registration. The Colombo Natyanjali team will be in touch soon. May Lord Shiva bless your journey.
                 </p>
               </motion.div>
             ) : (
@@ -82,6 +85,8 @@ export default function RegisterSection() {
                     <Input label="Age" type="number" placeholder="Age in years" />
                   </div>
                   <Input label="Nadanalaya Name" placeholder="Your school of dance" />
+                  <Select label="Dance Form" options={['Bharatanatyam', 'Kathak', 'Kuchipudi', 'Odissi', 'Mohiniyattam', 'Manipuri']} />
+                  <Select label="Performance Type" options={['Solo (5 minutes)', 'Group (15 minutes)']} />
                   <Select label="Level" options={['Beginner (< 3 years)', 'Intermediate (3–6 years)', 'Advanced (6+ years)', 'Senior Artist']} />
                   <Input label="Contact Number" type="tel" placeholder="+94 7X XXX XXXX" />
                   <Input label="Email" type="email" placeholder="your@email.com" />

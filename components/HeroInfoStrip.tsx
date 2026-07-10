@@ -4,9 +4,9 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const PANELS = [
-  { title: 'A Collective of Nadanalayas', body: 'Featuring troupes from 9 distinguished institutes across Sri Lanka' },
-  { title: 'Milestones Achieved',         body: 'Celebrating 3 consecutive years of devotional tribute since 2023' },
-  { title: 'Explore Previous Events',     body: 'Relive the sacred moments from Natyanjali 2023, 2024 and 2025' },
+  { title: 'A Sacred Annual Offering', body: 'Held every Maha Shivaratri at New Kathiresan Kovil, Bambalapitiya, since 2014' },
+  { title: 'Milestones Achieved',      body: 'Marking the Colombo Natyanjali Foundation’s 3rd consecutive year of tribute in 2026' },
+  { title: 'Explore Previous Events',  body: 'Relive the sacred moments from Natyanjali 2024 and 2025' },
 ];
 
 export default function HeroInfoStrip() {

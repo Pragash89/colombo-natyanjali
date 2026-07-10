@@ -4,13 +4,15 @@ import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { BilvaLeaf } from './icons/ShivaIcons';
 
-const TABS = ['2025', '2024', '2023'];
+const TABS = ['2025', '2024'];
 
-const GALLERY_ITEMS = Array.from({ length: 12 }, (_, i) => ({
-  id: i,
-  aspect: i % 3 === 0 ? 'tall' : 'square',
-  placeholder: `Natyanjali 2025 · Image ${i + 1}`,
-}));
+function galleryItems(year: string) {
+  return Array.from({ length: 12 }, (_, i) => ({
+    id: i,
+    aspect: i % 3 === 0 ? 'tall' : 'square',
+    placeholder: `Natyanjali ${year} · Image ${i + 1}`,
+  }));
+}
 
 export default function GallerySection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -49,7 +51,7 @@ export default function GallerySection() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
             transition={{ duration: .4 }}
             className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
-            {GALLERY_ITEMS.map((item, i) => (
+            {galleryItems(activeTab).map((item, i) => (
               <motion.div key={item.id}
                 initial={{ opacity: 0, scale: .92 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -73,7 +75,7 @@ export default function GallerySection() {
         </AnimatePresence>
 
         <p className="text-center mt-8" style={{ fontFamily: 'var(--font-sub)', fontSize: '.72rem', letterSpacing: '.18em', color: 'var(--text-muted)', fontStyle: 'italic' }}>
-          High-resolution photographs from all three editions will be published here. &nbsp;✦&nbsp; Media partnerships welcome.
+          High-resolution photographs from past editions will be published here. &nbsp;✦&nbsp; Media partnerships welcome.
         </p>
       </div>
     </section>

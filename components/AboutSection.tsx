@@ -32,40 +32,45 @@ export default function AboutSection() {
           <motion.div variants={fadeUp} className="mt-5 mx-auto" style={{ width: 180, height: 1, background: 'linear-gradient(to right, transparent, var(--gold), transparent)' }} />
           <motion.p variants={fadeUp} className="mt-3"
                     style={{ fontFamily: 'var(--font-sub)', fontSize: '.72rem', letterSpacing: '.3em', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
-            Annual Bharatanatyam Tribute on Maha Shivaratri
+            Annual Classical Dance Tribute on Maha Shivaratri
           </motion.p>
         </motion.div>
 
         {/* Body text */}
         <motion.div variants={stagger} initial="hidden" animate={inView ? 'show' : 'hidden'}
-                    className="grid md:grid-cols-2 gap-10 mb-16">
+                    className="grid md:grid-cols-2 gap-10 mb-10">
           <motion.div variants={fadeUp} className="velvet-scroll-card" style={{ padding: '1.8rem 2rem 1.8rem' }}>
-            <h3 style={{ fontFamily: 'var(--font-title)', fontSize: '1.05rem', color: 'var(--gold-light)', letterSpacing: '.12em', marginBottom: '1rem' }}>The Vision</h3>
+            <h3 style={{ fontFamily: 'var(--font-title)', fontSize: '1.05rem', color: 'var(--gold-light)', letterSpacing: '.12em', marginBottom: '1rem' }}>Our Story</h3>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: 1.85, color: 'var(--text-primary)' }}>
-              Colombo Natyanjali was born from a singular, sacred aspiration — to offer the ancient art of Bharatanatyam as a living prayer to Lord Nataraja on the most auspicious night of Maha Shivaratri. Every mudra, every rhythmic footfall, every graceful arc of the arm becomes an act of devotion when offered at the cosmic feet of the Lord of Dance.
+              The Colombo Natyanjali Foundation was founded in 2024 with a heartfelt mission to preserve, promote, and create awareness of Indian and Sri Lankan culture through traditional classical music and classical dance. For centuries, art has been a sacred language of the soul — through graceful movements and divine rhythms, our heritage continues to speak to generations.
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: 1.85, color: 'var(--text-primary)', marginTop: '1rem' }}>
-              What began as a quiet gathering of devoted dancers and discerning patrons in 2023 has blossomed into Sri Lanka's most celebrated platform for classical Bharatanatyam — a testament to the island's deep and enduring reverence for the classical arts.
+              With this vision, the Foundation proudly nurtures timeless classical dance forms such as Bharatanatyam, Kathak, Kuchipudi, Odissi, Mohiniyattam and Manipuri, keeping their spirit alive for the future.
             </p>
           </motion.div>
           <motion.div variants={fadeUp} className="velvet-scroll-card" style={{ padding: '1.8rem 2rem 1.8rem' }}>
             <h3 style={{ fontFamily: 'var(--font-title)', fontSize: '1.05rem', color: 'var(--gold-light)', letterSpacing: '.12em', marginBottom: '1rem' }}>The Night of Shiva</h3>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: 1.85, color: 'var(--text-primary)' }}>
-              Maha Shivaratri — the Great Night of Shiva — is when the cosmos itself holds its breath and devotion transcends all ordinary boundaries. On this sacred night, the veil between the temporal and the divine thins to translucence, and dance becomes the most perfect offering.
+              Yet this journey of devotion began even earlier. From the year 2014, on the sacred night of Mahashivarathri, a divine offering has been continuously presented — the festival known as Colombo Natyanjali. Every year, at the holy grounds of New Kathiresan Kovil, Bambalapitiya, devotees and artistes gather as one to worship Lord Shiva through the sacred language of traditional dance.
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: 1.85, color: 'var(--text-primary)', marginTop: '1rem' }}>
-              Natyanjali — literally &ldquo;the offering of dance&rdquo; — transforms the stage into a sanctum. Each performance is a consecration; each audience member a witness to something eternal, something that stretches back through millennia to the first cosmic dance of creation.
+              With each step offered in faith, each movement becomes prayer, and dance becomes meditation — with the unwavering support of gurus, artistes, devotees and well-wishers, Colombo Natyanjali has grown into a symbol of unity, spirituality and cultural pride.
             </p>
           </motion.div>
         </motion.div>
+
+        <motion.p variants={fadeUp} initial="hidden" animate={inView ? 'show' : 'hidden'} className="text-center mb-16"
+                  style={{ fontFamily: 'var(--font-body)', fontSize: '1.1rem', fontStyle: 'italic', color: 'var(--gold-light)', letterSpacing: '.02em', maxWidth: 640, margin: '0 auto 4rem' }}>
+          &ldquo;Because here, art is worship, culture is identity, and dance is devotion.&rdquo;
+        </motion.p>
 
         {/* Pillars of philosophy */}
         <motion.div variants={stagger} initial="hidden" animate={inView ? 'show' : 'hidden'}
                     className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {[
-            { icon: '💃', title: 'Devotion', desc: 'Dance as the highest form of prayer to Lord Nataraja' },
-            { icon: '🏛️', title: 'Tradition', desc: 'Rooted in the Chola-era classical Bharatanatyam canon' },
-            { icon: '🪔', title: 'Community', desc: 'Uniting Nadanalayas and students across Sri Lanka' },
+            { icon: '💃', title: 'Devotion', desc: 'Every step offered as prayer to Lord Shiva' },
+            { icon: '🏛️', title: 'Tradition', desc: 'Bharatanatyam, Kathak, Kuchipudi, Odissi, Mohiniyattam & Manipuri' },
+            { icon: '🪔', title: 'Community', desc: 'Uniting artistes, gurus and devotees in Sri Lanka and abroad' },
             { icon: '✨', title: 'Excellence', desc: 'Upholding the highest standards of classical artistry' },
           ].map((item, i) => (
             <motion.div key={i} variants={fadeUp} className="stone-card p-6 text-center">

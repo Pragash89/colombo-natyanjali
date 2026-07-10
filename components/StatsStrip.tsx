@@ -4,10 +4,10 @@ import { useRef, useEffect, useState } from 'react';
 import { useInView } from 'framer-motion';
 
 const STATS = [
-  { value: 3,   suffix: '',   label: 'Consecutive Years', sub: '2023 – Present' },
-  { value: 9,   suffix: '+',  label: 'Nadanalayas', sub: 'Across Sri Lanka' },
-  { value: 200, suffix: '+',  label: 'Artists', sub: 'Student & Senior' },
-  { value: 5000,suffix: '+',  label: 'Audience Members', sub: 'Annual attendance' },
+  { value: 2014, suffix: '', label: 'First Offering',          sub: 'Maha Shivaratri, New Kathiresan Kovil' },
+  { value: 2024, suffix: '', label: 'Foundation Established',  sub: 'Colombo Natyanjali Foundation' },
+  { value: 3,    suffix: '', label: 'Consecutive Years',       sub: 'Foundation Era · 2024 – 2026' },
+  { value: 6,    suffix: '', label: 'Classical Dance Forms',   sub: 'Nurtured & Presented' },
 ];
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {
@@ -29,7 +29,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
     requestAnimationFrame(tick);
   }, [inView, target]);
 
-  return <span ref={ref}>{val >= 1000 ? `${(val / 1000).toFixed(val % 1000 === 0 ? 0 : 1)}K` : val}{suffix}</span>;
+  return <span ref={ref}>{val >= 10000 ? `${(val / 1000).toFixed(val % 1000 === 0 ? 0 : 1)}K` : val}{suffix}</span>;
 }
 
 export default function StatsStrip() {
