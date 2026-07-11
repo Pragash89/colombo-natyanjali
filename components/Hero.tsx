@@ -194,15 +194,15 @@ export default function Hero() {
 
         {/* Soft golden glow behind the Sivalingam */}
         <div className="absolute pointer-events-none"
-             style={{ top: '28%', left: '50%', width: '54%', height: '40%', transform: 'translate(-50%,0)',
+             style={{ bottom: '2%', left: '55%', width: '64%', height: '62%', transform: 'translate(-50%,0)',
                       background: 'radial-gradient(ellipse, rgba(255,207,110,.55) 0%, rgba(232,197,71,.2) 45%, transparent 74%)',
                       filter: 'blur(20px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
 
-        {/* 2. Sivalingam — begins at the tower's midline, glowing */}
-        <div className="absolute" style={{ top: '33%', left: '50%', width: '44%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
+        {/* 2. Sivalingam — enlarged, resting on the tower's base, glowing */}
+        <div className="absolute" style={{ bottom: '0%', left: '55%', width: '53%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
           <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
-                 sizes="(max-width: 768px) 30vw, 320px" className="object-contain"
-                 style={{ filter: 'drop-shadow(0 0 28px rgba(255,207,110,.55)) drop-shadow(0 0 60px rgba(201,120,30,.35)) drop-shadow(0 14px 22px rgba(0,0,0,.55))' }} />
+                 sizes="(max-width: 768px) 36vw, 380px" className="object-contain"
+                 style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 28px rgba(255,207,110,.55)) drop-shadow(0 0 60px rgba(201,120,30,.35)) drop-shadow(0 14px 22px rgba(0,0,0,.55))' }} />
         </div>
 
         {/* 3. Nandhi — foremost layer, seated almost at the tower's base */}
