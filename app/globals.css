@@ -267,15 +267,9 @@ html.lenis { height: auto; }
 
 section { position: relative; }
 
-/* On narrow screens the full corner pillars don't fit alongside the arch — hide them and
-   let the statue sit a little larger within the arch opening */
 @media (max-width: 640px) {
-  .arch-pillar-l,
-  .arch-pillar-r {
-    display: none;
-  }
-  .statue-wrap {
-    width: min(58vw, 56vh, 720px) !important;
+  .temple-stack {
+    width: min(88vw, 66vh, 720px) !important;
   }
   .hero-nav-btn {
     width: clamp(64px, 18.5vw, 130px) !important;

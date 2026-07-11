@@ -16,14 +16,6 @@ const NAV_LINKS = [
   { label: 'Gallery',                  link: '#gallery' },
 ];
 
-/* Diya positions arranged in an 8-point star / mandala radiating from the statue */
-const DIYA_RING = Array.from({ length: 16 }, (_, i) => {
-  const angle = (i / 16) * Math.PI * 2 - Math.PI / 2;
-  const r = 38 + (i % 2 === 0 ? 0 : 9);
-  return { x: 50 + Math.cos(angle) * r * 0.62, y: 62 + Math.sin(angle) * r * 0.34 };
-});
-
-
 export default function Hero() {
   const heroRef   = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -31,14 +23,10 @@ export default function Hero() {
   /* Entrance choreography */
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.from('.arch-pillar-l', { x: -100, opacity: 0, duration: 1.5 }, 0)
-      .from('.arch-pillar-r', { x:  100, opacity: 0, duration: 1.5 }, 0)
-      .from('.hero-arch',     { y: -40, opacity: 0, duration: 1.1 }, .4)
-      .from('.hero-nav-row',  { y: -24, opacity: 0, duration: 1 }, .8)
-      .from('.statue-wrap',   { scale: .72, opacity: 0, duration: 1.7, ease: 'back.out(1.4)' }, .5)
-      .from('.diya-dot',      { scale: 0, opacity: 0, duration: .6, stagger: .04 }, 1.1)
-      .from('.info-panel',    { y: 50, opacity: 0, duration: .9, stagger: .15 }, 1.7)
-      .from('.hero-scroll',   { opacity: 0, duration: .8 }, 2.4);
+    tl.from('.hero-title',    { y: -32, opacity: 0, duration: 1.1 }, .2)
+      .from('.hero-nav-row',  { y: -24, opacity: 0, duration: 1 }, .7)
+      .from('.temple-stack',  { scale: .82, opacity: 0, duration: 1.7, ease: 'back.out(1.3)' }, .5)
+      .from('.hero-scroll',   { opacity: 0, duration: .8 }, 2.3);
   }, { scope: heroRef });
 
   /* Ember particle canvas */
@@ -154,71 +142,23 @@ export default function Hero() {
       {/* Ember particles */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[4] pointer-events-none" />
 
-      {/* ===== ARCH PILLARS (real sculpture asset, full Nandhi-crowned columns) ===== */}
-      <div className="arch-pillar-l absolute bottom-0 left-0 z-[15] pointer-events-none"
-           style={{ width: 'clamp(120px, 14vw, 240px)', height: '88%' }}>
-        <Image src="/images/pillar-left.png" alt="" fill quality={90} className="object-contain"
-               style={{ objectPosition: 'left bottom', filter: 'drop-shadow(8px 6px 20px rgba(0,0,0,.65))' }}/>
-      </div>
-      <div className="arch-pillar-r absolute bottom-0 right-0 z-[15] pointer-events-none"
-           style={{ width: 'clamp(120px, 14vw, 240px)', height: '88%' }}>
-        <Image src="/images/pillar-right.png" alt="" fill quality={90} className="object-contain"
-               style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-8px 6px 20px rgba(0,0,0,.65))' }}/>
-      </div>
-
-      {/* ===== ARCH WITH LOGO — spans the gap between the pillars, replaces the title card ===== */}
-      <div className="hero-arch absolute left-1/2 z-[11] pointer-events-none"
-           style={{ top: 0, transform: 'translateX(-50%)', width: 'min(1300px, 92vw)', aspectRatio: '2400 / 1542' }}>
-        <Image src="/images/arch-logo.png" alt="Colombo Natyanjali — The Annual Maha Shivaratri Dance Tribute" fill priority quality={95}
-               className="object-contain"
-               style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,.55))' }}/>
+      {/* ===== TITLE ===== */}
+      <div className="hero-title absolute left-1/2 z-[20] text-center pointer-events-none"
+           style={{ top: 'clamp(20px, 4.5vh, 48px)', transform: 'translateX(-50%)', width: 'min(680px, 92vw)' }}>
+        <p style={{ fontFamily: 'var(--font-sub)', fontSize: 'clamp(.58rem, 1.4vw, .72rem)', letterSpacing: '.34em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '.5rem' }}>
+          Maha Shivaratri · Annual Dance Tribute
+        </p>
+        <h1 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1.5rem, 4.6vw, 3.2rem)', letterSpacing: '.1em', lineHeight: 1.1 }}>
+          Colombo Natyanjali
+        </h1>
+        <p style={{ fontFamily: 'var(--font-sub)', fontSize: 'clamp(.8rem, 2vw, 1.15rem)', color: 'var(--gold-light)', letterSpacing: '.04em', marginTop: '.35rem' }}>
+          கொழும்பு நாட்டியாஞ்சலி
+        </p>
       </div>
 
-      {/* ===== DIYA STAR-PATTERN + NATARAJA (framed inside the arch opening, sized to avoid clipping its corners) ===== */}
-      <div className="statue-wrap absolute z-[12] pointer-events-none"
-           style={{ left: '50%', top: 'calc(min(1300px, 92vw) * 0.22)', transform: 'translateX(-50%)', width: 'min(59.8vw, 72.8vh, 936px)', minWidth: 230 }}>
-        {/* Star/mandala diya ring */}
-        <svg viewBox="0 0 100 100" className="absolute inset-0 w-full" style={{ height: '100%' }} aria-hidden>
-          <defs>
-            <radialGradient id="diyaGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#ffcf6e" stopOpacity=".95"/>
-              <stop offset="100%" stopColor="#ffcf6e" stopOpacity="0"/>
-            </radialGradient>
-          </defs>
-          {/* Connecting star lines */}
-          <g stroke="rgba(232,197,71,.22)" strokeWidth=".25" fill="none">
-            {DIYA_RING.filter((_, i) => i % 2 === 0).map((p, i, arr) => {
-              const next = arr[(i + 2) % arr.length] || arr[0];
-              return <line key={i} x1={p.x} y1={p.y} x2={next.x} y2={next.y} />;
-            })}
-          </g>
-          {DIYA_RING.map((p, i) => (
-            <g key={i} className="diya-dot">
-              <circle cx={p.x} cy={p.y} r="3.4" fill="url(#diyaGlow)" />
-              <circle cx={p.x} cy={p.y} r="0.8" fill="#fff3cf" />
-            </g>
-          ))}
-        </svg>
-
-        {/* Glow beneath statue — breathes and drifts gently for an air of majesty (statue itself stays still) */}
-        <div className="absolute left-1/2 pointer-events-none"
-             style={{ bottom: '4%', left: '50%', width: '54%', height: '20%', transformOrigin: 'center',
-                      background: 'radial-gradient(ellipse, rgba(255,207,110,.5) 0%, transparent 72%)', filter: 'blur(8px)',
-                      animation: 'glowDrift 7s ease-in-out infinite' }} />
-
-        {/* Nataraja — Lord of Dance, the heart of the composition (kept still, full majesty) */}
-        <div className="relative" style={{ width: '78%', margin: '0 auto' }}>
-          <div className="relative w-full" style={{ paddingBottom: '100%' }}>
-            <Image src="/images/nataraja-statue.png" alt="Nataraja — Lord of Dance" fill quality={95}
-                   className="object-contain" sizes="(max-width: 768px) 75vw, 36vw"
-                   style={{ filter: 'drop-shadow(0 0 38px rgba(255,207,110,.6)) drop-shadow(0 0 80px rgba(201,120,30,.4)) drop-shadow(0 20px 26px rgba(0,0,0,.6))' }}/>
-          </div>
-        </div>
-      </div>
-
-      {/* ===== NAV ROW — real stone-plaque button assets, riding along the top of the arch ===== */}
+      {/* ===== NAV ROW — real stone-plaque button assets ===== */}
       <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-           style={{ top: 'calc(min(1300px, 92vw) * 0.17)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+           style={{ top: 'clamp(146px, 21vh, 226px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
              style={{ width: '100%' }}
              aria-label="Primary">
@@ -238,6 +178,39 @@ export default function Hero() {
             </a>
           ))}
         </nav>
+      </div>
+
+      {/* ===== TEMPLE STACK — Koburam (tower) → Sivalingam (glowing, from its midline) → Nandhi (front, at its base) ===== */}
+      <div className="temple-stack absolute z-[12] pointer-events-none"
+           style={{ left: '50%', bottom: 'clamp(14px, 3.5vh, 40px)', transform: 'translateX(-50%)',
+                    width: 'min(64vw, 82vh, 720px)', minWidth: 230, aspectRatio: '1822 / 1996' }}>
+
+        {/* 1. Koburam — the temple tower, back layer, fills the frame */}
+        <div className="absolute inset-0">
+          <Image src="/images/koburam.webp" alt="Koburam — temple tower of New Kathiresan Kovil" fill priority quality={90}
+                 sizes="(max-width: 768px) 68vw, 720px" className="object-contain"
+                 style={{ objectPosition: 'center top', filter: 'drop-shadow(0 24px 44px rgba(0,0,0,.6))' }} />
+        </div>
+
+        {/* Soft golden glow behind the Sivalingam */}
+        <div className="absolute pointer-events-none"
+             style={{ top: '28%', left: '50%', width: '54%', height: '40%', transform: 'translate(-50%,0)',
+                      background: 'radial-gradient(ellipse, rgba(255,207,110,.55) 0%, rgba(232,197,71,.2) 45%, transparent 74%)',
+                      filter: 'blur(20px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
+
+        {/* 2. Sivalingam — begins at the tower's midline, glowing */}
+        <div className="absolute" style={{ top: '33%', left: '50%', width: '44%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
+          <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
+                 sizes="(max-width: 768px) 30vw, 320px" className="object-contain"
+                 style={{ filter: 'drop-shadow(0 0 28px rgba(255,207,110,.55)) drop-shadow(0 0 60px rgba(201,120,30,.35)) drop-shadow(0 14px 22px rgba(0,0,0,.55))' }} />
+        </div>
+
+        {/* 3. Nandhi — foremost layer, seated almost at the tower's base */}
+        <div className="absolute" style={{ bottom: '0.5%', left: '50%', width: '34%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
+          <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
+                 sizes="(max-width: 768px) 24vw, 250px" className="object-contain"
+                 style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 16px 28px rgba(0,0,0,.65))' }} />
+        </div>
       </div>
 
       {/* Scroll cue */}
