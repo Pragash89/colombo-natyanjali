@@ -23,9 +23,11 @@ export default function Hero() {
   /* Entrance choreography */
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.from('.hero-title',    { y: -32, opacity: 0, duration: 1.1 }, .2)
-      .from('.hero-nav-row',  { y: -24, opacity: 0, duration: 1 }, .7)
-      .from('.temple-stack',  { scale: .82, opacity: 0, duration: 1.7, ease: 'back.out(1.3)' }, .5)
+    tl.from('.hero-pillar-l', { x: -60, opacity: 0, duration: 1.3 }, 0)
+      .from('.hero-pillar-r', { x: 60, opacity: 0, duration: 1.3 }, 0)
+      .from('.hero-nav-row',  { y: -24, opacity: 0, duration: 1 }, .5)
+      .from('.temple-stack',  { scale: .82, opacity: 0, duration: 1.7, ease: 'back.out(1.3)' }, .4)
+      .from('.hero-plank',    { y: -24, opacity: 0, duration: 1 }, 1.1)
       .from('.hero-scroll',   { opacity: 0, duration: .8 }, 2.3);
   }, { scope: heroRef });
 
@@ -142,23 +144,21 @@ export default function Hero() {
       {/* Ember particles */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[4] pointer-events-none" />
 
-      {/* ===== TITLE ===== */}
-      <div className="hero-title absolute left-1/2 z-[20] text-center pointer-events-none"
-           style={{ top: 'clamp(20px, 4.5vh, 48px)', transform: 'translateX(-50%)', width: 'min(680px, 92vw)' }}>
-        <p style={{ fontFamily: 'var(--font-sub)', fontSize: 'clamp(.58rem, 1.4vw, .72rem)', letterSpacing: '.34em', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '.5rem' }}>
-          Maha Shivaratri · Annual Dance Tribute
-        </p>
-        <h1 className="gold-text" style={{ fontFamily: 'var(--font-hd)', fontSize: 'clamp(1.5rem, 4.6vw, 3.2rem)', letterSpacing: '.1em', lineHeight: 1.1 }}>
-          Colombo Natyanjali
-        </h1>
-        <p style={{ fontFamily: 'var(--font-sub)', fontSize: 'clamp(.8rem, 2vw, 1.15rem)', color: 'var(--gold-light)', letterSpacing: '.04em', marginTop: '.35rem' }}>
-          கொழும்பு நாட்டியாஞ்சலி
-        </p>
+      {/* ===== GUARDIAN PILLARS — Nandhi-topped stone columns flanking the temple stack ===== */}
+      <div className="hero-pillar-l absolute bottom-0 left-0 z-[15] pointer-events-none"
+           style={{ width: 'clamp(64px, 9vw, 168px)', height: 'clamp(280px, 66vh, 640px)' }}>
+        <Image src="/images/pillar-left.webp" alt="" fill quality={90} className="object-contain"
+               style={{ objectPosition: 'left bottom', filter: 'drop-shadow(6px 8px 20px rgba(0,0,0,.65))' }} />
+      </div>
+      <div className="hero-pillar-r absolute bottom-0 right-0 z-[15] pointer-events-none"
+           style={{ width: 'clamp(64px, 9vw, 168px)', height: 'clamp(280px, 66vh, 640px)' }}>
+        <Image src="/images/pillar-right.webp" alt="" fill quality={90} className="object-contain"
+               style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
       </div>
 
       {/* ===== NAV ROW — real stone-plaque button assets ===== */}
       <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-           style={{ top: 'clamp(146px, 21vh, 226px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+           style={{ top: 'clamp(24px, 5vh, 56px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
              style={{ width: '100%' }}
              aria-label="Primary">
@@ -183,7 +183,7 @@ export default function Hero() {
       {/* ===== TEMPLE STACK — Koburam (tower) → Sivalingam (glowing, from its midline) → Nandhi (front, at its base) ===== */}
       <div className="temple-stack absolute z-[12] pointer-events-none"
            style={{ left: '50%', bottom: 'clamp(14px, 3.5vh, 40px)', transform: 'translateX(-50%)',
-                    width: 'min(64vw, 82vh, 720px)', minWidth: 230, aspectRatio: '1822 / 1996' }}>
+                    width: 'min(58vw, 70vh, 660px)', minWidth: 220, aspectRatio: '1822 / 1996' }}>
 
         {/* 1. Koburam — the temple tower, back layer, fills the frame */}
         <div className="absolute inset-0">
@@ -208,11 +208,27 @@ export default function Hero() {
                  style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 28px rgba(255,207,110,.55)) drop-shadow(0 0 60px rgba(201,120,30,.35)) drop-shadow(0 14px 22px rgba(0,0,0,.55))' }} />
         </div>
 
+        {/* Thin white neon rim tracing the Sivalingam's silhouette, gently pulsing */}
+        <div className="absolute pointer-events-none" aria-hidden
+             style={{ bottom: '4%', left: '56.8%', width: '53%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878',
+                      animation: 'neonPulse 3.2s ease-in-out infinite' }}>
+          <Image src="/images/siva-lingam.webp" alt="" fill quality={92} className="object-contain"
+                 style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #fff) drop-shadow(0 0 14px #fff) drop-shadow(0 0 26px #fff) drop-shadow(0 0 40px rgba(255,255,255,.85))' }} />
+        </div>
+
         {/* 3. Nandhi — foremost layer, seated almost at the tower's base */}
         <div className="absolute" style={{ bottom: '0.5%', left: '50%', width: '34%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
           <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
                  sizes="(max-width: 768px) 24vw, 250px" className="object-contain"
                  style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 16px 28px rgba(0,0,0,.65))' }} />
+        </div>
+
+        {/* 4. Stone plank logo — rests atop the Koburam's peak */}
+        <div className="hero-plank absolute z-[5] pointer-events-none"
+             style={{ top: '-7%', left: '50%', transform: 'translateX(-50%)', width: '46%', aspectRatio: '3858 / 1548' }}>
+          <Image src="/images/logo-plank.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
+                 sizes="(max-width: 768px) 40vw, 400px" className="object-contain"
+                 style={{ filter: 'drop-shadow(0 10px 22px rgba(0,0,0,.6))' }} />
         </div>
       </div>
 

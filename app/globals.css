@@ -65,6 +65,10 @@ html.lenis { height: auto; }
   0%, 100% { opacity: .5; }
   50%       { opacity: 1; }
 }
+@keyframes neonPulse {
+  0%, 100% { opacity: .8; }
+  50%       { opacity: 1; }
+}
 @keyframes glowDrift {
   0%, 100% { transform: translate(-50%, 0) scale(1); opacity: .55; }
   50%       { transform: translate(-50%, -12px) scale(1.15); opacity: .9; }
@@ -276,6 +280,10 @@ section { position: relative; }
   }
   .hero-nav-row {
     gap: 2px !important;
+  }
+  .hero-pillar-l,
+  .hero-pillar-r {
+    display: none;
   }
 }
 
