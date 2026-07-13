@@ -25,9 +25,10 @@ export default function Hero() {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.from('.hero-pillar-l', { x: -60, opacity: 0, duration: 1.3 }, 0)
       .from('.hero-pillar-r', { x: 60, opacity: 0, duration: 1.3 }, 0)
-      .from('.hero-nav-row',  { y: -24, opacity: 0, duration: 1 }, .5)
-      .from('.temple-stack',  { scale: .82, opacity: 0, duration: 1.7, ease: 'back.out(1.3)' }, .4)
-      .from('.hero-plank',    { y: -24, opacity: 0, duration: 1 }, 1.1)
+      .from('.hero-plank',    { y: -24, opacity: 0, duration: 1 }, .3)
+      .from('.hero-nav-row',  { y: -24, opacity: 0, duration: 1 }, .7)
+      .from('.courtyard-scene .koburam-layer', { opacity: 0, duration: 1.4 }, .5)
+      .from('.courtyard-scene .altar-layer',   { scale: .8, opacity: 0, duration: 1.3, ease: 'back.out(1.3)' }, 1)
       .from('.hero-scroll',   { opacity: 0, duration: .8 }, 2.3);
   }, { scope: heroRef });
 
@@ -64,82 +65,53 @@ export default function Hero() {
     <section id="hero" ref={heroRef} className="relative w-full overflow-hidden"
              style={{ minHeight: '100svh', background: '#0c0a08' }}>
 
-      {/* ===== PAINTED DUSK SKY ===== */}
-      <div className="absolute inset-0 z-0" aria-hidden
-           style={{ background: 'linear-gradient(to bottom, #131b32 0%, #2c2f4d 18%, #5c5571 36%, #9b6f6a 52%, #d59259 66%, #4a3326 82%, #14100a 100%)' }} />
-      {/* Sun glow on horizon */}
-      <div className="absolute left-1/2 z-0 pointer-events-none" aria-hidden
-           style={{ top: '38%', width: 420, height: 420, transform: 'translate(-50%,-50%)', borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(255,200,120,.35) 0%, rgba(255,150,80,.12) 45%, transparent 75%)' }} />
+      {/* ===== COURTYARD BACKDROP — painted dusk scene, sized/cropped like CSS background-size:cover
+           while staying aspect-ratio-locked so the Koburam/altar overlays (positioned by %) always
+           land on the same spot in the painting regardless of viewport shape ===== */}
+      <div className="courtyard-scene absolute z-0 pointer-events-none" aria-hidden
+           style={{ top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+                    width: 'max(100%, calc(100vh * 2390 / 1792))', aspectRatio: '2390 / 1792' }}>
+        <Image src="/images/courtyard-backdrop.webp" alt="New Kathiresan Kovil courtyard at dusk" fill priority quality={90}
+               sizes="100vw" className="object-cover" />
 
-      {/* ===== STARS ===== */}
-      <div className="absolute inset-0 z-[1] pointer-events-none" aria-hidden>
-        {Array.from({ length: 36 }).map((_, i) => (
-          <span key={i} style={{
-            position: 'absolute',
-            left: `${(i * 53) % 100}%`,
-            top: `${(i * 29) % 42}%`,
-            width: i % 5 === 0 ? 2 : 1, height: i % 5 === 0 ? 2 : 1,
-            borderRadius: '50%', background: '#fff',
-            opacity: .15 + (i % 4) * .12,
-          }} />
-        ))}
+        {/* Koburam — rises behind the altar platform, sized to clear the nav/plank header fully */}
+        <div className="koburam-layer absolute pointer-events-none"
+             style={{ width: '13%', bottom: '54%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
+          <Image src="/images/koburam.webp" alt="Koburam — temple tower" fill quality={90}
+                 sizes="(max-width: 768px) 30vw, 320px" className="object-contain"
+                 style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,.5))' }} />
+        </div>
+
+        {/* Altar group — Sivalingam (glowing, neon-rimmed) with Nandhi seated in front, on the mandala platform */}
+        <div className="altar-layer absolute pointer-events-none" style={{ left: '50%', bottom: '37%', transform: 'translateX(-50%)', width: '13%', aspectRatio: '1 / 1' }}>
+          {/* soft golden glow */}
+          <div className="absolute pointer-events-none"
+               style={{ bottom: '18%', left: '54%', width: '92%', height: '78%', transform: 'translate(-50%,0)',
+                        background: 'radial-gradient(ellipse, rgba(255,207,110,.6) 0%, rgba(232,197,71,.22) 45%, transparent 74%)',
+                        filter: 'blur(6px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
+
+          {/* Sivalingam (shaft offset ~12.9% right of box-center — see Sivalingam notes elsewhere) */}
+          <div className="absolute" style={{ bottom: '14%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
+            <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
+                   sizes="120px" className="object-contain"
+                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 10px rgba(255,207,110,.6)) drop-shadow(0 0 20px rgba(201,120,30,.4)) drop-shadow(0 4px 6px rgba(0,0,0,.5))' }} />
+          </div>
+          {/* thin white neon rim, gently pulsing */}
+          <div className="absolute pointer-events-none" aria-hidden
+               style={{ bottom: '14%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878',
+                        animation: 'neonPulse 3.2s ease-in-out infinite' }}>
+            <Image src="/images/siva-lingam.webp" alt="" fill quality={92} className="object-contain"
+                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #fff)' }} />
+          </div>
+
+          {/* Nandhi — seated in front, at the platform */}
+          <div className="absolute" style={{ bottom: '0%', left: '50%', width: '39%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
+            <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
+                   sizes="90px" className="object-contain"
+                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.6))' }} />
+          </div>
+        </div>
       </div>
-
-      {/* ===== TEMPLE SKYLINE SILHOUETTE ===== */}
-      <svg className="absolute bottom-0 left-0 right-0 z-[2] w-full" viewBox="0 0 1920 460"
-           preserveAspectRatio="xMidYMax slice" style={{ height: '38%' }} aria-hidden>
-        <defs>
-          <linearGradient id="skylineFade" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1c1c28" stopOpacity=".88"/>
-            <stop offset="100%" stopColor="#0c0a08" stopOpacity=".96"/>
-          </linearGradient>
-        </defs>
-        {/* Palm trees — far left & right */}
-        <g fill="url(#skylineFade)" opacity=".8">
-          <path d="M70,460 L82,300 Q60,290 40,300 Q66,294 82,300 Q92,270 78,250 Q98,268 86,300 Q110,292 124,308 Q98,300 84,304 L96,460 Z"/>
-          <path d="M1850,460 L1838,310 Q1862,300 1882,312 Q1854,304 1838,310 Q1830,278 1846,258 Q1824,278 1834,310 Q1808,304 1796,320 Q1822,310 1836,314 L1824,460 Z"/>
-        </g>
-        {/* Side buildings (colonial-style w/ domes) */}
-        <g fill="url(#skylineFade)">
-          <rect x="190" y="330" width="190" height="130"/>
-          <rect x="225" y="295" width="34" height="40"/>
-          <circle cx="242" cy="290" r="17"/>
-          <rect x="320" y="300" width="30" height="35"/>
-          <circle cx="335" cy="296" r="15"/>
-          <rect x="1540" y="330" width="190" height="130"/>
-          <rect x="1660" y="295" width="34" height="40"/>
-          <circle cx="1677" cy="290" r="17"/>
-          <rect x="1580" y="300" width="30" height="35"/>
-          <circle cx="1595" cy="296" r="15"/>
-        </g>
-        {/* Central gopuram tower (stepped pyramid silhouette) */}
-        <g fill="url(#skylineFade)">
-          <rect x="860" y="380" width="200" height="80"/>
-          <rect x="878" y="330" width="164" height="56"/>
-          <rect x="894" y="286" width="132" height="50"/>
-          <rect x="908" y="248" width="104" height="44"/>
-          <rect x="922" y="214" width="76" height="40"/>
-          <rect x="936" y="184" width="48" height="36"/>
-          <polygon points="936,184 960,156 984,184"/>
-          <circle cx="960" cy="148" r="8"/>
-          {/* Tower decorative tiers */}
-          <rect x="884" y="376" width="192" height="6" opacity=".5"/>
-          <rect x="900" y="326" width="160" height="5" opacity=".5"/>
-          <rect x="916" y="282" width="128" height="5" opacity=".5"/>
-        </g>
-        {/* Distant tree line */}
-        <g fill="url(#skylineFade)" opacity=".55">
-          {Array.from({ length: 22 }).map((_, i) => (
-            <ellipse key={i} cx={120 + i * 80} cy={420} rx="34" ry="20"/>
-          ))}
-        </g>
-      </svg>
-
-      {/* ===== COURTYARD FLOOR GLOW ===== */}
-      <div className="absolute bottom-0 left-0 right-0 z-[3] pointer-events-none" aria-hidden
-           style={{ height: '46%',
-                    background: 'radial-gradient(ellipse 60% 100% at 50% 100%, rgba(232,197,71,.16) 0%, rgba(150,90,30,.10) 38%, transparent 72%)' }} />
 
       {/* Ember particles */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[4] pointer-events-none" />
@@ -156,9 +128,17 @@ export default function Hero() {
                style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
       </div>
 
+      {/* ===== STONE PLANK LOGO — title banner at the top of the scene ===== */}
+      <div className="hero-plank absolute left-1/2 z-[20] pointer-events-none"
+           style={{ top: 'clamp(16px, 3.2vh, 36px)', transform: 'translateX(-50%)', width: 'min(460px, 52vw)', aspectRatio: '3858 / 1548' }}>
+        <Image src="/images/logo-plank.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
+               sizes="(max-width: 768px) 50vw, 460px" className="object-contain"
+               style={{ filter: 'drop-shadow(0 8px 18px rgba(0,0,0,.6))' }} />
+      </div>
+
       {/* ===== NAV ROW — real stone-plaque button assets ===== */}
       <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-           style={{ top: 'clamp(24px, 5vh, 56px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+           style={{ top: 'clamp(150px, 24vh, 230px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
              style={{ width: '100%' }}
              aria-label="Primary">
@@ -178,58 +158,6 @@ export default function Hero() {
             </a>
           ))}
         </nav>
-      </div>
-
-      {/* ===== TEMPLE STACK — Koburam (tower) → Sivalingam (glowing, from its midline) → Nandhi (front, at its base) ===== */}
-      <div className="temple-stack absolute z-[12] pointer-events-none"
-           style={{ left: '50%', bottom: 'clamp(14px, 3.5vh, 40px)', transform: 'translateX(-50%)',
-                    width: 'min(58vw, 70vh, 660px)', minWidth: 220, aspectRatio: '1822 / 1996' }}>
-
-        {/* 1. Koburam — the temple tower, back layer, fills the frame */}
-        <div className="absolute inset-0">
-          <Image src="/images/koburam.webp" alt="Koburam — temple tower of New Kathiresan Kovil" fill priority quality={90}
-                 sizes="(max-width: 768px) 68vw, 720px" className="object-contain"
-                 style={{ objectPosition: 'center top', filter: 'drop-shadow(0 24px 44px rgba(0,0,0,.6))' }} />
-        </div>
-
-        {/* Soft golden glow behind the Sivalingam */}
-        <div className="absolute pointer-events-none"
-             style={{ bottom: '4%', left: '56.8%', width: '64%', height: '62%', transform: 'translate(-50%,0)',
-                      background: 'radial-gradient(ellipse, rgba(255,207,110,.55) 0%, rgba(232,197,71,.2) 45%, transparent 74%)',
-                      filter: 'blur(20px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
-
-        {/* 2. Sivalingam — enlarged, resting near the tower's base, glowing.
-            The trimmed asset's shaft sits ~12.9% left of its own bounding-box
-            center (its base/spout extends further right), so the box is offset
-            right of 50% to bring the visible shaft in line with Koburam/Nandhi. */}
-        <div className="absolute" style={{ bottom: '4%', left: '56.8%', width: '53%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
-          <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
-                 sizes="(max-width: 768px) 36vw, 380px" className="object-contain"
-                 style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 28px rgba(255,207,110,.55)) drop-shadow(0 0 60px rgba(201,120,30,.35)) drop-shadow(0 14px 22px rgba(0,0,0,.55))' }} />
-        </div>
-
-        {/* Thin white neon rim tracing the Sivalingam's silhouette, gently pulsing */}
-        <div className="absolute pointer-events-none" aria-hidden
-             style={{ bottom: '4%', left: '56.8%', width: '53%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878',
-                      animation: 'neonPulse 3.2s ease-in-out infinite' }}>
-          <Image src="/images/siva-lingam.webp" alt="" fill quality={92} className="object-contain"
-                 style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #fff) drop-shadow(0 0 14px #fff) drop-shadow(0 0 26px #fff) drop-shadow(0 0 40px rgba(255,255,255,.85))' }} />
-        </div>
-
-        {/* 3. Nandhi — foremost layer, seated almost at the tower's base */}
-        <div className="absolute" style={{ bottom: '0.5%', left: '50%', width: '34%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
-          <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
-                 sizes="(max-width: 768px) 24vw, 250px" className="object-contain"
-                 style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 16px 28px rgba(0,0,0,.65))' }} />
-        </div>
-
-        {/* 4. Stone plank logo — rests atop the Koburam's peak */}
-        <div className="hero-plank absolute z-[5] pointer-events-none"
-             style={{ top: '-7%', left: '50%', transform: 'translateX(-50%)', width: '46%', aspectRatio: '3858 / 1548' }}>
-          <Image src="/images/logo-plank.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
-                 sizes="(max-width: 768px) 40vw, 400px" className="object-contain"
-                 style={{ filter: 'drop-shadow(0 10px 22px rgba(0,0,0,.6))' }} />
-        </div>
       </div>
 
       {/* Scroll cue */}

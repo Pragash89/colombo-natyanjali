@@ -272,9 +272,6 @@ html.lenis { height: auto; }
 section { position: relative; }
 
 @media (max-width: 640px) {
-  .temple-stack {
-    width: min(88vw, 66vh, 720px) !important;
-  }
   .hero-nav-btn {
     width: clamp(64px, 18.5vw, 130px) !important;
   }
