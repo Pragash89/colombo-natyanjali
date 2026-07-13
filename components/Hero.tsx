@@ -74,31 +74,33 @@ export default function Hero() {
         <Image src="/images/courtyard-backdrop.webp" alt="New Kathiresan Kovil courtyard at dusk" fill priority quality={90}
                sizes="100vw" className="object-cover" />
 
-        {/* Koburam — rises behind the altar platform, sized to clear the nav/plank header fully */}
+        {/* Koburam — rises behind the altar platform, centered between the palm trees */}
         <div className="koburam-layer absolute pointer-events-none"
-             style={{ width: '13%', bottom: '54%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
+             style={{ width: '11%', bottom: '52%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
           <Image src="/images/koburam.webp" alt="Koburam — temple tower" fill quality={90}
-                 sizes="(max-width: 768px) 30vw, 320px" className="object-contain"
+                 sizes="(max-width: 768px) 26vw, 280px" className="object-contain"
                  style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,.5))' }} />
         </div>
 
-        {/* Altar group — Sivalingam (glowing, neon-rimmed) with Nandhi seated in front, on the mandala platform */}
-        <div className="altar-layer absolute pointer-events-none" style={{ left: '50%', bottom: '37%', transform: 'translateX(-50%)', width: '13%', aspectRatio: '1 / 1' }}>
+        {/* Altar group — Sivalingam (glowing, neon-rimmed) with Nandhi seated in front, on the mandala platform.
+            All three (Koburam above, Sivalingam+Nandhi here) share left:50% of the same courtyard-scene box,
+            so they sit on one shared vertical centerline. */}
+        <div className="altar-layer absolute pointer-events-none" style={{ left: '50%', bottom: '37%', transform: 'translateX(-50%)', width: '11%', aspectRatio: '1 / 1' }}>
           {/* soft golden glow */}
           <div className="absolute pointer-events-none"
-               style={{ bottom: '18%', left: '54%', width: '92%', height: '78%', transform: 'translate(-50%,0)',
+               style={{ bottom: '22%', left: '54%', width: '92%', height: '78%', transform: 'translate(-50%,0)',
                         background: 'radial-gradient(ellipse, rgba(255,207,110,.6) 0%, rgba(232,197,71,.22) 45%, transparent 74%)',
                         filter: 'blur(6px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
 
-          {/* Sivalingam (shaft offset ~12.9% right of box-center — see Sivalingam notes elsewhere) */}
-          <div className="absolute" style={{ bottom: '14%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
+          {/* Sivalingam — nudged back/up relative to Nandhi (shaft offset ~12.9% right of box-center) */}
+          <div className="absolute" style={{ bottom: '20%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
             <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
-                   sizes="120px" className="object-contain"
+                   sizes="100px" className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 10px rgba(255,207,110,.6)) drop-shadow(0 0 20px rgba(201,120,30,.4)) drop-shadow(0 4px 6px rgba(0,0,0,.5))' }} />
           </div>
           {/* thin white neon rim, gently pulsing */}
           <div className="absolute pointer-events-none" aria-hidden
-               style={{ bottom: '14%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878',
+               style={{ bottom: '20%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878',
                         animation: 'neonPulse 3.2s ease-in-out infinite' }}>
             <Image src="/images/siva-lingam.webp" alt="" fill quality={92} className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #fff)' }} />
@@ -107,7 +109,7 @@ export default function Hero() {
           {/* Nandhi — seated in front, at the platform */}
           <div className="absolute" style={{ bottom: '0%', left: '50%', width: '39%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
             <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
-                   sizes="90px" className="object-contain"
+                   sizes="80px" className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.6))' }} />
           </div>
         </div>
@@ -116,29 +118,31 @@ export default function Hero() {
       {/* Ember particles */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[4] pointer-events-none" />
 
-      {/* ===== GUARDIAN PILLARS — Nandhi-topped stone columns flanking the temple stack ===== */}
-      <div className="hero-pillar-l absolute bottom-0 left-0 z-[15] pointer-events-none"
-           style={{ width: 'clamp(64px, 9vw, 168px)', height: 'clamp(280px, 66vh, 640px)' }}>
+      {/* ===== GUARDIAN PILLARS — Nandhi-topped stone columns flanking the temple stack, inset
+           from the viewport edges to sit roughly where an archway's legs would (per the framing
+           reference), taller than before ===== */}
+      <div className="hero-pillar-l absolute bottom-0 z-[15] pointer-events-none"
+           style={{ left: 'clamp(4px, 2.4vw, 26px)', width: 'clamp(68px, 9.5vw, 176px)', height: 'clamp(340px, 78vh, 760px)' }}>
         <Image src="/images/pillar-left.webp" alt="" fill quality={90} className="object-contain"
                style={{ objectPosition: 'left bottom', filter: 'drop-shadow(6px 8px 20px rgba(0,0,0,.65))' }} />
       </div>
-      <div className="hero-pillar-r absolute bottom-0 right-0 z-[15] pointer-events-none"
-           style={{ width: 'clamp(64px, 9vw, 168px)', height: 'clamp(280px, 66vh, 640px)' }}>
+      <div className="hero-pillar-r absolute bottom-0 z-[15] pointer-events-none"
+           style={{ right: 'clamp(4px, 2.4vw, 26px)', width: 'clamp(68px, 9.5vw, 176px)', height: 'clamp(340px, 78vh, 760px)' }}>
         <Image src="/images/pillar-right.webp" alt="" fill quality={90} className="object-contain"
                style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
       </div>
 
-      {/* ===== STONE PLANK LOGO — title banner at the top of the scene ===== */}
+      {/* ===== LOGO — title mark at the top of the scene, sized to stay clear of the Koburam below it ===== */}
       <div className="hero-plank absolute left-1/2 z-[20] pointer-events-none"
-           style={{ top: 'clamp(16px, 3.2vh, 36px)', transform: 'translateX(-50%)', width: 'min(460px, 52vw)', aspectRatio: '3858 / 1548' }}>
-        <Image src="/images/logo-plank.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
-               sizes="(max-width: 768px) 50vw, 460px" className="object-contain"
-               style={{ filter: 'drop-shadow(0 8px 18px rgba(0,0,0,.6))' }} />
+           style={{ top: 'clamp(14px, 2.6vh, 30px)', transform: 'translateX(-50%)', width: 'min(190px, 22vw)', aspectRatio: '5155 / 3512' }}>
+        <Image src="/images/natyanjali-logo.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
+               sizes="(max-width: 768px) 24vw, 190px" className="object-contain"
+               style={{ filter: 'drop-shadow(0 6px 14px rgba(0,0,0,.6))' }} />
       </div>
 
       {/* ===== NAV ROW — real stone-plaque button assets ===== */}
       <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-           style={{ top: 'clamp(150px, 24vh, 230px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+           style={{ top: 'clamp(108px, 17vh, 168px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
              style={{ width: '100%' }}
              aria-label="Primary">
