@@ -65,96 +65,100 @@ export default function Hero() {
     <section id="hero" ref={heroRef} className="relative w-full overflow-hidden"
              style={{ minHeight: '100svh', background: '#0c0a08' }}>
 
-      {/* ===== COURTYARD BACKDROP — painted dusk scene, sized/cropped like CSS background-size:cover
-           while staying aspect-ratio-locked so the Koburam/altar overlays (positioned by %) always
-           land on the same spot in the painting regardless of viewport shape ===== */}
-      <div className="courtyard-scene absolute z-0 pointer-events-none" aria-hidden
-           style={{ top: '50%', left: '50%', transform: 'translate(-50%,-50%) scale(1.35)',
-                    width: 'max(100%, calc(100vh * 2000 / 1340))', aspectRatio: '2000 / 1340' }}>
-        <Image src="/images/courtyard-backdrop.webp" alt="New Kathiresan Kovil courtyard at dusk" fill priority quality={90}
-               sizes="100vw" className="object-cover" />
+      {/* ===== SCENE WRAPPER — backdrop, temple/altar, pillars, logo and nav all live in here as one group ===== */}
+      <div className="hero-scene absolute inset-0">
 
-        {/* Koburam — rises behind the altar platform, centered between the palm trees */}
-        <div className="koburam-layer absolute pointer-events-none"
-             style={{ width: '13%', bottom: '39%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
-          <Image src="/images/koburam.webp" alt="Koburam — temple tower" fill quality={90}
-                 sizes="(max-width: 768px) 26vw, 280px" className="object-contain"
-                 style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,.5))' }} />
-        </div>
+        {/* ===== COURTYARD BACKDROP — painted dusk scene, sized/cropped like CSS background-size:cover
+             while staying aspect-ratio-locked so the Koburam/altar overlays (positioned by %) always
+             land on the same spot in the painting regardless of viewport shape ===== */}
+        <div className="courtyard-scene absolute z-0 pointer-events-none" aria-hidden
+             style={{ top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+                      width: 'max(100%, calc(100vh * 2000 / 1340))', aspectRatio: '2000 / 1340' }}>
+          <Image src="/images/courtyard-backdrop.webp" alt="New Kathiresan Kovil courtyard at dusk" fill priority quality={90}
+                 sizes="100vw" className="object-cover" />
 
-        {/* Altar group — Sivalingam (glowing, neon-rimmed) with Nandhi seated in front, on the mandala platform.
-            All three (Koburam above, Sivalingam+Nandhi here) share left:50% of the same courtyard-scene box,
-            so they sit on one shared vertical centerline. */}
-        <div className="altar-layer absolute pointer-events-none" style={{ left: '50%', bottom: '23%', transform: 'translateX(-50%)', width: '11%', aspectRatio: '1 / 1' }}>
-          {/* soft golden glow */}
-          <div className="absolute pointer-events-none"
-               style={{ bottom: '22%', left: '54%', width: '92%', height: '78%', transform: 'translate(-50%,0)',
-                        background: 'radial-gradient(ellipse, rgba(255,207,110,.6) 0%, rgba(232,197,71,.22) 45%, transparent 74%)',
-                        filter: 'blur(6px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
-
-          {/* Sivalingam — nudged back/up relative to Nandhi (shaft offset ~12.9% right of box-center) */}
-          <div className="absolute" style={{ bottom: '20%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
-            <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
-                   sizes="100px" className="object-contain"
-                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 10px rgba(255,207,110,.6)) drop-shadow(0 0 20px rgba(201,120,30,.4)) drop-shadow(0 4px 6px rgba(0,0,0,.5))' }} />
+          {/* Koburam — rises behind the altar platform, centered between the palm trees */}
+          <div className="koburam-layer absolute pointer-events-none"
+               style={{ width: '16.5%', bottom: '35%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
+            <Image src="/images/koburam.webp" alt="Koburam — temple tower" fill quality={90}
+                   sizes="(max-width: 768px) 26vw, 280px" className="object-contain"
+                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,.5))' }} />
           </div>
 
-          {/* Nandhi — seated in front, at the platform */}
-          <div className="absolute" style={{ bottom: '0%', left: '50%', width: '39%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
-            <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
-                   sizes="80px" className="object-contain"
-                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.6))' }} />
+          {/* Altar group — Sivalingam (glowing, neon-rimmed) with Nandhi seated in front, on the mandala platform.
+              All three (Koburam above, Sivalingam+Nandhi here) share left:50% of the same courtyard-scene box,
+              so they sit on one shared vertical centerline. */}
+          <div className="altar-layer absolute pointer-events-none" style={{ left: '50%', bottom: '19%', transform: 'translateX(-50%)', width: '13.5%', aspectRatio: '1 / 1' }}>
+            {/* soft golden glow */}
+            <div className="absolute pointer-events-none"
+                 style={{ bottom: '22%', left: '54%', width: '92%', height: '78%', transform: 'translate(-50%,0)',
+                          background: 'radial-gradient(ellipse, rgba(255,207,110,.6) 0%, rgba(232,197,71,.22) 45%, transparent 74%)',
+                          filter: 'blur(6px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
+
+            {/* Sivalingam — nudged back/up relative to Nandhi (shaft offset ~12.9% right of box-center) */}
+            <div className="absolute" style={{ bottom: '26%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
+              <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
+                     sizes="100px" className="object-contain"
+                     style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 10px rgba(255,207,110,.6)) drop-shadow(0 0 20px rgba(201,120,30,.4)) drop-shadow(0 4px 6px rgba(0,0,0,.5))' }} />
+            </div>
+
+            {/* Nandhi — seated in front, at the platform */}
+            <div className="absolute" style={{ bottom: '0%', left: '50%', width: '39%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
+              <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
+                     sizes="80px" className="object-contain"
+                     style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.6))' }} />
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Ember particles */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[4] pointer-events-none" />
+        {/* Ember particles */}
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-[4] pointer-events-none" />
 
-      {/* ===== GUARDIAN PILLARS — Nandhi-topped stone columns flanking the temple stack, inset
-           from the viewport edges to sit roughly where an archway's legs would (per the framing
-           reference), taller than before ===== */}
-      <div className="hero-pillar-l absolute bottom-0 z-[15] pointer-events-none"
-           style={{ left: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(110px, 15.5vw, 280px)', height: 'clamp(340px, 78vh, 760px)' }}>
-        <Image src="/images/pillar-left.webp" alt="" fill quality={90} className="object-contain"
-               style={{ objectPosition: 'left bottom', filter: 'drop-shadow(6px 8px 20px rgba(0,0,0,.65))' }} />
-      </div>
-      <div className="hero-pillar-r absolute bottom-0 z-[15] pointer-events-none"
-           style={{ right: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(110px, 15.5vw, 280px)', height: 'clamp(340px, 78vh, 760px)' }}>
-        <Image src="/images/pillar-right.webp" alt="" fill quality={90} className="object-contain"
-               style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
-      </div>
+        {/* ===== GUARDIAN PILLARS — Nandhi-topped stone columns flanking the temple stack, inset
+             from the viewport edges to sit roughly where an archway's legs would (per the framing
+             reference), taller than before ===== */}
+        <div className="hero-pillar-l absolute bottom-0 z-[15] pointer-events-none"
+             style={{ left: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(110px, 15.5vw, 280px)', height: 'clamp(340px, 78vh, 760px)' }}>
+          <Image src="/images/pillar-left.webp" alt="" fill quality={90} className="object-contain"
+                 style={{ objectPosition: 'left bottom', filter: 'drop-shadow(6px 8px 20px rgba(0,0,0,.65))' }} />
+        </div>
+        <div className="hero-pillar-r absolute bottom-0 z-[15] pointer-events-none"
+             style={{ right: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(110px, 15.5vw, 280px)', height: 'clamp(340px, 78vh, 760px)' }}>
+          <Image src="/images/pillar-right.webp" alt="" fill quality={90} className="object-contain"
+                 style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
+        </div>
 
-      {/* ===== LOGO — carved stone plaque title mark, sized/positioned to match the reference framing ===== */}
-      <div className="hero-plank absolute left-1/2 z-[20] pointer-events-none"
-           style={{ top: 'clamp(16px, 6.2vh, 60px)', transform: 'translateX(-50%)', width: 'min(480px, 33.1vw)', aspectRatio: '3858 / 1548' }}>
-        <Image src="/images/natyanjali-logo-plaque.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
-               sizes="(max-width: 768px) 40vw, 480px" className="object-contain"
-               style={{ filter: 'drop-shadow(0 8px 18px rgba(0,0,0,.6))' }} />
-      </div>
+        {/* ===== LOGO — carved stone plaque title mark, lifted clear above the nav row ===== */}
+        <div className="hero-plank absolute left-1/2 z-[20] pointer-events-none"
+             style={{ top: 'clamp(8px, 3.4vh, 34px)', transform: 'translateX(-50%)', width: 'min(480px, 33.1vw)', aspectRatio: '3858 / 1548' }}>
+          <Image src="/images/natyanjali-logo-plaque.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
+                 sizes="(max-width: 768px) 40vw, 480px" className="object-contain"
+                 style={{ filter: 'drop-shadow(0 8px 18px rgba(0,0,0,.6))' }} />
+        </div>
 
-      {/* ===== NAV ROW — real stone-plaque button assets ===== */}
-      <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-           style={{ top: 'clamp(80px, 29.6vh, 230px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
-        <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
-             style={{ width: '100%' }}
-             aria-label="Primary">
-          {NAV_LINKS.map((item, i) => (
-            <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
-               style={{ width: 'clamp(98.4px, 16.2vw, 194.4px)', aspectRatio: '1154 / 291', flexShrink: 0, cursor: 'pointer' }}
-               onClick={e => { const href = item.link; if (href.startsWith('#')) { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }}>
-              <Image src="/images/plaque-blank.png" alt="" fill quality={90}
-                     className="plaque-bg object-contain pointer-events-none" />
-              <span className="plaque-label relative px-2" style={{
-                fontFamily: 'var(--font-title)', fontSize: 'clamp(.48rem, .984vw, .672rem)',
-                letterSpacing: '.07em', textTransform: 'uppercase', color: 'var(--gold-light)',
-                lineHeight: 1.1, whiteSpace: 'normal',
-              }}>
-                {item.label}
-              </span>
-            </a>
-          ))}
-        </nav>
+        {/* ===== NAV ROW — real stone-plaque button assets, lifted clear above the Koburam and pillar tops ===== */}
+        <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
+             style={{ top: 'clamp(64px, 21.5vh, 178px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+          <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
+               style={{ width: '100%' }}
+               aria-label="Primary">
+            {NAV_LINKS.map((item, i) => (
+              <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
+                 style={{ width: 'clamp(98.4px, 16.2vw, 194.4px)', aspectRatio: '1154 / 291', flexShrink: 0, cursor: 'pointer' }}
+                 onClick={e => { const href = item.link; if (href.startsWith('#')) { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }}>
+                <Image src="/images/plaque-blank.png" alt="" fill quality={90}
+                       className="plaque-bg object-contain pointer-events-none" />
+                <span className="plaque-label relative px-2" style={{
+                  fontFamily: 'var(--font-title)', fontSize: 'clamp(.48rem, .984vw, .672rem)',
+                  letterSpacing: '.07em', textTransform: 'uppercase', color: 'var(--gold-light)',
+                  lineHeight: 1.1, whiteSpace: 'normal',
+                }}>
+                  {item.label}
+                </span>
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
 
       {/* Scroll cue */}
