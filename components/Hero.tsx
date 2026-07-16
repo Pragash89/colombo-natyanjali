@@ -69,7 +69,7 @@ export default function Hero() {
            while staying aspect-ratio-locked so the Koburam/altar overlays (positioned by %) always
            land on the same spot in the painting regardless of viewport shape ===== */}
       <div className="courtyard-scene absolute z-0 pointer-events-none" aria-hidden
-           style={{ top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+           style={{ top: '50%', left: '50%', transform: 'translate(-50%,-50%) scale(1.35)',
                     width: 'max(100%, calc(100vh * 2000 / 1340))', aspectRatio: '2000 / 1340' }}>
         <Image src="/images/courtyard-backdrop.webp" alt="New Kathiresan Kovil courtyard at dusk" fill priority quality={90}
                sizes="100vw" className="object-cover" />
