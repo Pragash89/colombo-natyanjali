@@ -76,7 +76,7 @@ export default function Hero() {
 
         {/* Koburam — rises behind the altar platform, centered between the palm trees */}
         <div className="koburam-layer absolute pointer-events-none"
-             style={{ width: '11%', bottom: '52%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
+             style={{ width: '13%', bottom: '52%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
           <Image src="/images/koburam.webp" alt="Koburam — temple tower" fill quality={90}
                  sizes="(max-width: 768px) 26vw, 280px" className="object-contain"
                  style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,.5))' }} />
@@ -98,13 +98,6 @@ export default function Hero() {
                    sizes="100px" className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 10px rgba(255,207,110,.6)) drop-shadow(0 0 20px rgba(201,120,30,.4)) drop-shadow(0 4px 6px rgba(0,0,0,.5))' }} />
           </div>
-          {/* thin white neon rim, gently pulsing */}
-          <div className="absolute pointer-events-none" aria-hidden
-               style={{ bottom: '20%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878',
-                        animation: 'neonPulse 3.2s ease-in-out infinite' }}>
-            <Image src="/images/siva-lingam.webp" alt="" fill quality={92} className="object-contain"
-                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #fff)' }} />
-          </div>
 
           {/* Nandhi — seated in front, at the platform */}
           <div className="absolute" style={{ bottom: '0%', left: '50%', width: '39%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
@@ -122,27 +115,27 @@ export default function Hero() {
            from the viewport edges to sit roughly where an archway's legs would (per the framing
            reference), taller than before ===== */}
       <div className="hero-pillar-l absolute bottom-0 z-[15] pointer-events-none"
-           style={{ left: 'clamp(4px, 2.4vw, 26px)', width: 'clamp(68px, 9.5vw, 176px)', height: 'clamp(340px, 78vh, 760px)' }}>
+           style={{ left: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(110px, 15.5vw, 280px)', height: 'clamp(340px, 78vh, 760px)' }}>
         <Image src="/images/pillar-left.webp" alt="" fill quality={90} className="object-contain"
                style={{ objectPosition: 'left bottom', filter: 'drop-shadow(6px 8px 20px rgba(0,0,0,.65))' }} />
       </div>
       <div className="hero-pillar-r absolute bottom-0 z-[15] pointer-events-none"
-           style={{ right: 'clamp(4px, 2.4vw, 26px)', width: 'clamp(68px, 9.5vw, 176px)', height: 'clamp(340px, 78vh, 760px)' }}>
+           style={{ right: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(110px, 15.5vw, 280px)', height: 'clamp(340px, 78vh, 760px)' }}>
         <Image src="/images/pillar-right.webp" alt="" fill quality={90} className="object-contain"
                style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
       </div>
 
-      {/* ===== LOGO — title mark at the top of the scene, sized to stay clear of the Koburam below it ===== */}
+      {/* ===== LOGO — carved stone plaque title mark, sized/positioned to match the reference framing ===== */}
       <div className="hero-plank absolute left-1/2 z-[20] pointer-events-none"
-           style={{ top: 'clamp(14px, 2.6vh, 30px)', transform: 'translateX(-50%)', width: 'min(190px, 22vw)', aspectRatio: '5155 / 3512' }}>
-        <Image src="/images/natyanjali-logo.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
-               sizes="(max-width: 768px) 24vw, 190px" className="object-contain"
-               style={{ filter: 'drop-shadow(0 6px 14px rgba(0,0,0,.6))' }} />
+           style={{ top: 'clamp(16px, 6.2vh, 60px)', transform: 'translateX(-50%)', width: 'min(480px, 33.1vw)', aspectRatio: '3858 / 1548' }}>
+        <Image src="/images/natyanjali-logo-plaque.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
+               sizes="(max-width: 768px) 40vw, 480px" className="object-contain"
+               style={{ filter: 'drop-shadow(0 8px 18px rgba(0,0,0,.6))' }} />
       </div>
 
       {/* ===== NAV ROW — real stone-plaque button assets ===== */}
       <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-           style={{ top: 'clamp(108px, 17vh, 168px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+           style={{ top: 'clamp(80px, 29.6vh, 230px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
         <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
              style={{ width: '100%' }}
              aria-label="Primary">
