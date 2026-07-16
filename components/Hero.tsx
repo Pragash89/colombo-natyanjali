@@ -70,13 +70,13 @@ export default function Hero() {
            land on the same spot in the painting regardless of viewport shape ===== */}
       <div className="courtyard-scene absolute z-0 pointer-events-none" aria-hidden
            style={{ top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-                    width: 'max(100%, calc(100vh * 2390 / 1792))', aspectRatio: '2390 / 1792' }}>
+                    width: 'max(100%, calc(100vh * 2000 / 1340))', aspectRatio: '2000 / 1340' }}>
         <Image src="/images/courtyard-backdrop.webp" alt="New Kathiresan Kovil courtyard at dusk" fill priority quality={90}
                sizes="100vw" className="object-cover" />
 
         {/* Koburam — rises behind the altar platform, centered between the palm trees */}
         <div className="koburam-layer absolute pointer-events-none"
-             style={{ width: '13%', bottom: '52%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
+             style={{ width: '13%', bottom: '39%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
           <Image src="/images/koburam.webp" alt="Koburam — temple tower" fill quality={90}
                  sizes="(max-width: 768px) 26vw, 280px" className="object-contain"
                  style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,.5))' }} />
@@ -85,7 +85,7 @@ export default function Hero() {
         {/* Altar group — Sivalingam (glowing, neon-rimmed) with Nandhi seated in front, on the mandala platform.
             All three (Koburam above, Sivalingam+Nandhi here) share left:50% of the same courtyard-scene box,
             so they sit on one shared vertical centerline. */}
-        <div className="altar-layer absolute pointer-events-none" style={{ left: '50%', bottom: '37%', transform: 'translateX(-50%)', width: '11%', aspectRatio: '1 / 1' }}>
+        <div className="altar-layer absolute pointer-events-none" style={{ left: '50%', bottom: '23%', transform: 'translateX(-50%)', width: '11%', aspectRatio: '1 / 1' }}>
           {/* soft golden glow */}
           <div className="absolute pointer-events-none"
                style={{ bottom: '22%', left: '54%', width: '92%', height: '78%', transform: 'translate(-50%,0)',
