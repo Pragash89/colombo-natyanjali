@@ -77,10 +77,10 @@ export default function Hero() {
           <Image src="/images/courtyard-backdrop.webp" alt="New Kathiresan Kovil courtyard at dusk" fill priority quality={90}
                  sizes="100vw" className="object-cover" />
 
-          {/* Koburam — rises behind the altar platform, centered between the palm trees. Reduced and pulled
-              up from its previous size/position, still centered on the shared vertical axis below. */}
+          {/* Koburam — rises behind the altar platform, centered between the palm trees. The pyramid art is
+              near-symmetric in its own frame, so bbox-center (left:50%) already tracks its visual axis. */}
           <div className="koburam-layer absolute pointer-events-none"
-               style={{ width: '13.5%', bottom: '40%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
+               style={{ width: '10.8%', bottom: '40%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
             <Image src="/images/koburam.webp" alt="Koburam — temple tower" fill quality={90}
                    sizes="(max-width: 768px) 26vw, 280px" className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,.5))' }} />
@@ -92,15 +92,20 @@ export default function Hero() {
                         background: 'radial-gradient(ellipse, rgba(255,207,110,.6) 0%, rgba(232,197,71,.22) 45%, transparent 74%)',
                         filter: 'blur(6px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
 
-          {/* Sivalingam — base planted exactly on the mandala ring's center point painted into the backdrop */}
-          <div className="absolute pointer-events-none" style={{ bottom: '29.9%', left: '50%', width: '6.8%', transform: 'translateX(-50%)', aspectRatio: '1634 / 1878' }}>
+          {/* Sivalingam — the source art is NOT symmetric in its own frame (the pouring-spout juts out to the
+              right of the shaft, pixel-verified: the shaft's own centerline sits at ~37.1% of the image's
+              width, not 50%). Centering the bounding box like Koburam/Nandhi would visibly throw the shaft
+              off-axis, so left is offset +0.9% to bring the SHAFT (not the box) onto the shared centerline,
+              with its base landing on the mandala ring's true center (50%, 29.9% from the scene bottom). */}
+          <div className="absolute pointer-events-none" style={{ bottom: '29.9%', left: '50.9%', width: '6.8%', transform: 'translateX(-50%)', aspectRatio: '1634 / 1878' }}>
             <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
                    sizes="100px" className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 10px rgba(255,207,110,.6)) drop-shadow(0 0 20px rgba(201,120,30,.4)) drop-shadow(0 4px 6px rgba(0,0,0,.5))' }} />
           </div>
 
-          {/* Nandhi — seated just forward of the Sivalingam, facing it across the ring */}
-          <div className="absolute pointer-events-none" style={{ bottom: '25%', left: '50%', width: '4.3%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
+          {/* Nandhi — seated just forward of the Sivalingam, facing it across the ring. Its face/head (the
+              feature that should track the shared centerline) is already close to bbox-center. */}
+          <div className="absolute pointer-events-none" style={{ bottom: '21.5%', left: '50%', width: '4.3%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
             <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
                    sizes="80px" className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.6))' }} />
