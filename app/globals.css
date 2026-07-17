@@ -280,10 +280,10 @@ section { position: relative; }
   }
   .hero-pillar-l,
   .hero-pillar-r {
-    width: clamp(56px, 15vw, 100px) !important;
+    width: clamp(140px, 42vw, 230px) !important;
   }
-  .hero-pillar-l { left: clamp(2px, 1.5vw, 12px) !important; }
-  .hero-pillar-r { right: clamp(2px, 1.5vw, 12px) !important; }
+  .hero-pillar-l { left: calc(clamp(140px, 42vw, 230px) / -2) !important; }
+  .hero-pillar-r { right: calc(clamp(140px, 42vw, 230px) / -2) !important; }
   .hero-plank {
     width: clamp(200px, 56vw, 320px) !important;
   }
