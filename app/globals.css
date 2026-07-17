@@ -280,7 +280,12 @@ section { position: relative; }
   }
   .hero-pillar-l,
   .hero-pillar-r {
-    display: none;
+    width: clamp(56px, 15vw, 100px) !important;
+  }
+  .hero-pillar-l { left: clamp(2px, 1.5vw, 12px) !important; }
+  .hero-pillar-r { right: clamp(2px, 1.5vw, 12px) !important; }
+  .hero-plank {
+    width: clamp(200px, 56vw, 320px) !important;
   }
 }
 
