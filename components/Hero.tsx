@@ -128,17 +128,17 @@ export default function Hero() {
                  style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
         </div>
 
-        {/* ===== LOGO — carved stone plaque title mark, shrunk 15% and lifted clear above the nav row ===== */}
+        {/* ===== LOGO — carved stone plaque title mark, shrunk 15%, pulled down with a clear gap above the nav row ===== */}
         <div className="hero-plank absolute left-1/2 z-[20] pointer-events-none"
-             style={{ top: 'clamp(4px, 1.8vh, 18px)', transform: 'translateX(-50%)', width: 'min(408px, 28.1vw)', aspectRatio: '3858 / 1548' }}>
+             style={{ top: 'clamp(20px, 5.5vh, 60px)', transform: 'translateX(-50%)', width: 'min(408px, 28.1vw)', aspectRatio: '3858 / 1548' }}>
           <Image src="/images/natyanjali-logo-plaque.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
                  sizes="(max-width: 768px) 40vw, 480px" className="object-contain"
                  style={{ filter: 'drop-shadow(0 8px 18px rgba(0,0,0,.6))' }} />
         </div>
 
-        {/* ===== NAV ROW — real stone-plaque button assets, sized down 15% and lifted clear above the Koburam and pillar tops ===== */}
+        {/* ===== NAV ROW — real stone-plaque button assets, sized down 15%, pulled down to sit inside the pillar frame ===== */}
         <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-             style={{ top: 'clamp(64px, 21.5vh, 178px)', transform: 'translateX(-50%)', width: 'min(918px, 81.6vw)' }}>
+             style={{ top: 'clamp(100px, 26.5vh, 260px)', transform: 'translateX(-50%)', width: 'min(918px, 81.6vw)' }}>
           <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
                style={{ width: '100%' }}
                aria-label="Primary">
