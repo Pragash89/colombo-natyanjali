@@ -138,7 +138,7 @@ export default function Hero() {
 
         {/* ===== NAV ROW — real stone-plaque button assets, sized down 15%, pulled down to sit inside the pillar frame ===== */}
         <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-             style={{ top: 'clamp(100px, 26.5vh, 260px)', transform: 'translateX(-50%)', width: 'min(918px, 81.6vw)' }}>
+             style={{ top: 'clamp(138px, calc(26.5vh + 38px), 298px)', transform: 'translateX(-50%)', width: 'min(918px, 81.6vw)' }}>
           <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
                style={{ width: '100%' }}
                aria-label="Primary">
