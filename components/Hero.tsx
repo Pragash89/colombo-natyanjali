@@ -77,37 +77,33 @@ export default function Hero() {
           <Image src="/images/courtyard-backdrop.webp" alt="New Kathiresan Kovil courtyard at dusk" fill priority quality={90}
                  sizes="100vw" className="object-cover" />
 
-          {/* Koburam — rises behind the altar platform, centered between the palm trees */}
+          {/* Koburam — rises behind the altar platform, centered between the palm trees. Reduced and pulled
+              up from its previous size/position, still centered on the shared vertical axis below. */}
           <div className="koburam-layer absolute pointer-events-none"
-               style={{ width: '16.5%', bottom: '35%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
+               style={{ width: '13.5%', bottom: '40%', left: '50%', transform: 'translateX(-50%)', aspectRatio: '2000 / 1985' }}>
             <Image src="/images/koburam.webp" alt="Koburam — temple tower" fill quality={90}
                    sizes="(max-width: 768px) 26vw, 280px" className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,.5))' }} />
           </div>
 
-          {/* Altar group — Sivalingam (glowing, neon-rimmed) with Nandhi seated in front, on the mandala platform.
-              All three (Koburam above, Sivalingam+Nandhi here) share left:50% of the same courtyard-scene box,
-              so they sit on one shared vertical centerline. */}
-          <div className="altar-layer absolute pointer-events-none" style={{ left: '50%', bottom: '19%', transform: 'translateX(-50%)', width: '13.5%', aspectRatio: '1 / 1' }}>
-            {/* soft golden glow */}
-            <div className="absolute pointer-events-none"
-                 style={{ bottom: '22%', left: '54%', width: '92%', height: '78%', transform: 'translate(-50%,0)',
-                          background: 'radial-gradient(ellipse, rgba(255,207,110,.6) 0%, rgba(232,197,71,.22) 45%, transparent 74%)',
-                          filter: 'blur(6px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
+          {/* soft golden glow — centered on the mandala ring painted into the backdrop */}
+          <div className="absolute pointer-events-none"
+               style={{ bottom: '27.2%', left: '50%', width: '12%', height: '9%', transform: 'translate(-50%,0)',
+                        background: 'radial-gradient(ellipse, rgba(255,207,110,.6) 0%, rgba(232,197,71,.22) 45%, transparent 74%)',
+                        filter: 'blur(6px)', animation: 'glowDrift 7s ease-in-out infinite' }} />
 
-            {/* Sivalingam — nudged back/up relative to Nandhi (shaft offset ~12.9% right of box-center) */}
-            <div className="absolute" style={{ bottom: '26%', left: '56.8%', width: '61%', transform: 'translate(-50%,0)', aspectRatio: '1634 / 1878' }}>
-              <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
-                     sizes="100px" className="object-contain"
-                     style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 10px rgba(255,207,110,.6)) drop-shadow(0 0 20px rgba(201,120,30,.4)) drop-shadow(0 4px 6px rgba(0,0,0,.5))' }} />
-            </div>
+          {/* Sivalingam — base planted exactly on the mandala ring's center point painted into the backdrop */}
+          <div className="absolute pointer-events-none" style={{ bottom: '29.9%', left: '50%', width: '6.8%', transform: 'translateX(-50%)', aspectRatio: '1634 / 1878' }}>
+            <Image src="/images/siva-lingam.webp" alt="Sivalingam" fill quality={92}
+                   sizes="100px" className="object-contain"
+                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 0 10px rgba(255,207,110,.6)) drop-shadow(0 0 20px rgba(201,120,30,.4)) drop-shadow(0 4px 6px rgba(0,0,0,.5))' }} />
+          </div>
 
-            {/* Nandhi — seated in front, at the platform */}
-            <div className="absolute" style={{ bottom: '0%', left: '50%', width: '39%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
-              <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
-                     sizes="80px" className="object-contain"
-                     style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.6))' }} />
-            </div>
+          {/* Nandhi — seated just forward of the Sivalingam, facing it across the ring */}
+          <div className="absolute pointer-events-none" style={{ bottom: '25%', left: '50%', width: '4.3%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
+            <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
+                   sizes="80px" className="object-contain"
+                   style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.6))' }} />
           </div>
         </div>
 
@@ -118,12 +114,12 @@ export default function Hero() {
              from the viewport edges to sit roughly where an archway's legs would (per the framing
              reference), taller than before ===== */}
         <div className="hero-pillar-l absolute bottom-0 z-[15] pointer-events-none"
-             style={{ left: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(110px, 15.5vw, 280px)', height: 'clamp(340px, 78vh, 760px)' }}>
+             style={{ left: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(88px, 12.4vw, 224px)', height: 'clamp(340px, 78vh, 760px)' }}>
           <Image src="/images/pillar-left.webp" alt="" fill quality={90} className="object-contain"
                  style={{ objectPosition: 'left bottom', filter: 'drop-shadow(6px 8px 20px rgba(0,0,0,.65))' }} />
         </div>
         <div className="hero-pillar-r absolute bottom-0 z-[15] pointer-events-none"
-             style={{ right: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(110px, 15.5vw, 280px)', height: 'clamp(340px, 78vh, 760px)' }}>
+             style={{ right: 'clamp(20px, 13.2vw, 190px)', width: 'clamp(88px, 12.4vw, 224px)', height: 'clamp(340px, 78vh, 760px)' }}>
           <Image src="/images/pillar-right.webp" alt="" fill quality={90} className="object-contain"
                  style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
         </div>
