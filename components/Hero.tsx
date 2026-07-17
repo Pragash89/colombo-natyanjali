@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 const NAV_LINKS = [
   { label: 'Home',                     link: '#hero' },
   { label: 'About Us',                 link: '#about' },
-  { label: 'Performances',             link: '#performances' },
   { label: 'History & Milestones',     link: '#timeline' },
   { label: 'Gallery',                  link: '#gallery' },
 ];
@@ -105,7 +104,7 @@ export default function Hero() {
 
           {/* Nandhi — seated just forward of the Sivalingam, facing it across the ring. Its face/head (the
               feature that should track the shared centerline) is already close to bbox-center. */}
-          <div className="absolute pointer-events-none" style={{ bottom: '21.5%', left: '50%', width: '4.3%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
+          <div className="absolute pointer-events-none" style={{ bottom: '22.7%', left: '50%', width: '4.3%', transform: 'translateX(-50%)', aspectRatio: '1462 / 1918' }}>
             <Image src="/images/nandhi.webp" alt="Nandhi — Lord Shiva's sacred bull" fill quality={92}
                    sizes="80px" className="object-contain"
                    style={{ objectPosition: 'center bottom', filter: 'drop-shadow(0 6px 10px rgba(0,0,0,.6))' }} />
@@ -129,28 +128,28 @@ export default function Hero() {
                  style={{ objectPosition: 'right bottom', filter: 'drop-shadow(-6px 8px 20px rgba(0,0,0,.65))' }} />
         </div>
 
-        {/* ===== LOGO — carved stone plaque title mark, lifted clear above the nav row ===== */}
+        {/* ===== LOGO — carved stone plaque title mark, shrunk 15% and lifted clear above the nav row ===== */}
         <div className="hero-plank absolute left-1/2 z-[20] pointer-events-none"
-             style={{ top: 'clamp(8px, 3.4vh, 34px)', transform: 'translateX(-50%)', width: 'min(480px, 33.1vw)', aspectRatio: '3858 / 1548' }}>
+             style={{ top: 'clamp(4px, 1.8vh, 18px)', transform: 'translateX(-50%)', width: 'min(408px, 28.1vw)', aspectRatio: '3858 / 1548' }}>
           <Image src="/images/natyanjali-logo-plaque.webp" alt="Colombo Natyanjali — கொழும்பு நாட்டியாஞ்சலி" fill priority quality={92}
                  sizes="(max-width: 768px) 40vw, 480px" className="object-contain"
                  style={{ filter: 'drop-shadow(0 8px 18px rgba(0,0,0,.6))' }} />
         </div>
 
-        {/* ===== NAV ROW — real stone-plaque button assets, lifted clear above the Koburam and pillar tops ===== */}
+        {/* ===== NAV ROW — real stone-plaque button assets, sized down 15% and lifted clear above the Koburam and pillar tops ===== */}
         <div className="absolute left-1/2 z-[22] flex flex-col items-center pointer-events-none"
-             style={{ top: 'clamp(64px, 21.5vh, 178px)', transform: 'translateX(-50%)', width: 'min(1080px, 96vw)' }}>
+             style={{ top: 'clamp(64px, 21.5vh, 178px)', transform: 'translateX(-50%)', width: 'min(918px, 81.6vw)' }}>
           <nav className="hero-nav-row pointer-events-auto flex flex-nowrap items-center justify-center gap-1 sm:gap-2"
                style={{ width: '100%' }}
                aria-label="Primary">
             {NAV_LINKS.map((item, i) => (
               <a key={i} href={item.link} className="hero-nav-btn group relative flex items-center justify-center text-center"
-                 style={{ width: 'clamp(98.4px, 16.2vw, 194.4px)', aspectRatio: '1154 / 291', flexShrink: 0, cursor: 'pointer' }}
+                 style={{ width: 'clamp(83.6px, 13.77vw, 165.2px)', aspectRatio: '1154 / 291', flexShrink: 0, cursor: 'pointer' }}
                  onClick={e => { const href = item.link; if (href.startsWith('#')) { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }}>
                 <Image src="/images/plaque-blank.png" alt="" fill quality={90}
                        className="plaque-bg object-contain pointer-events-none" />
                 <span className="plaque-label relative px-2" style={{
-                  fontFamily: 'var(--font-title)', fontSize: 'clamp(.48rem, .984vw, .672rem)',
+                  fontFamily: 'var(--font-title)', fontSize: 'clamp(.408rem, .836vw, .571rem)',
                   letterSpacing: '.07em', textTransform: 'uppercase', color: 'var(--gold-light)',
                   lineHeight: 1.1, whiteSpace: 'normal',
                 }}>
